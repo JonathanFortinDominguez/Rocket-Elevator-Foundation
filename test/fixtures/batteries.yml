@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building: one
+  type: 
+  status: MyString
+  employee: one
+  operational_date: 2019-10-15
+  last_checkup: 2019-10-15
+  certificat: MyString
+  info: MyString
+  notes: MyText
+
+two:
+  building: two
+  type: 
+  status: MyString
+  employee: two
+  operational_date: 2019-10-15
+  last_checkup: 2019-10-15
+  certificat: MyString
+  info: MyString
+  notes: MyText

@@ -1,0 +1,46 @@
+<br>
+<br>
+<br>
+
+
+<div class="container border " align="center"  style="border-radius: 15px; border: 2px solid ; padding: 15px;">
+
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email,  style: 'color: black;' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", style: 'border-radius: 25px; border: 2px solid black;' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password,  style: 'color: black;' %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "new-password" , style: 'border-radius: 25px; border: 2px solid black;'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation,  style: 'color: black;' %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", style: 'border-radius: 25px; border: 2px solid black;'   %>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= f.submit "Sign up" , style: 'border-radius: 25px; border: 2px solid black;', class: 'btn btn-lg' %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+</div>
+
+<br>
+<br>
+<br>
+<script>
+		var plugin_path = '/assets/plugins/';
+	</script> 

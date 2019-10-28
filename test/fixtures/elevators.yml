@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  column: one
+  serial_number: MyString
+  model: MyString
+  type: 
+  status: MyString
+  activate_date: 2019-10-15
+  last_checkup: 2019-10-15
+  inspection_certificat: MyString
+  information: MyString
+  notes: MyString
+
+two:
+  column: two
+  serial_number: MyString
+  model: MyString
+  type: 
+  status: MyString
+  activate_date: 2019-10-15
+  last_checkup: 2019-10-15
+  inspection_certificat: MyString
+  information: MyString
+  notes: MyString

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+
+</head>
+
+<br>
+<div class="container">
+
+</div>
+
+		<div class="form-group col-md-4 container mt-3">
+			<br>
+			<h1 class="m-1 fs-50 fw-300" id="subForm">Submission Form</h1>
+
+			<hr>
+
+			
+			<%= form_for @quotes do |f| %>
+			
+			<!-- buildingType-->
+			<label for="buildingType">Choose your Buildinng Type:</label>
+			<select id="buildingType" class="form-control" style="display:block;" onchange="on_change()" name="building_type" required="required">
+				<option value="" >Choose Building Type...</option>
+				<option value="Residential">Residential</option>
+				<option value="Commercial">Commercial</option>
+				<option value="Corporate">Corporate</option>
+				<option value="Hybrid">Hybrid</option>
+			</select>
+		</div>
+
+		<!-- quality of elevators -->
+		<div align="center" class="container">
+			<br>
+			<label for="quality">Selection your quality: </label>
+			<input id="standard" required type="radio" name="quality" value="standard" class="qlChange"> Standard
+			<input id="premium" required type="radio" name="quality" value="premium" class="qlChange"> Premium
+			<input id="excelium" required type="radio" name="quality" value="excelium" class="qlChange"> Excelium
+			</br>
+		</div>
+		<br>
+
+		<hr>
+
+		<div class="col-md-12 container">
+			<!-- Residential -->
+			<div id="residential" align="center">
+				<!-- numApps -->
+				<label class="fs-14">Number of appartments in the building:</label>
+				<input  type="number" min="0" value="" class="borderRadius_" onkeyup="calcResidential()" onchange="calcResidential()" id="numAppartement" name="numAppResidential">
+
+
+				<!-- NumFloors -->
+				<label class="fs-14">Number of floors:</label>
+				<input  type="number" min="0" value=""  class="borderRadius_"   onkeyup="calcResidential()" onchange="calcResidential()" id="numFloorsRes" name="numFloorResidential">
+
+
+				<!-- NumberBasement -->
+				<label class="fs-14">Number of basements:</label>
+				<input  type="number" min="0" value="" class="borderRadius_"  id="num_basement_Residential" name="numBasementResidential" >
+
+			<br>
+		</div>
+
+		<!-- Commercial -->
+		<div id="commercial" align="center">
+
+			<!-- NumBuisinnes -->
+			<label class="fs-14">Number of distinct businesses:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" class="comChange" name="numberBuissinessCommercial">
+
+
+			<!-- NumFloors -->
+			<label class="fs-14">Number of floors:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" class="comChange" name="numberFloorCommercial">
+
+
+			<!-- NumberBasementts -->
+			<label class="fs-14">Number of basements:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" class="comChange" name="numberBasementCommercial">
+
+
+			<!-- NumParkings-->
+			<label class="fs-14">Number of parking spot:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" class="comChange" name="numberParkingCommercial">
+
+
+			<!-- numCage-->
+			<label class="fs-14">Number of lift cages to deploy:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" onkeyup="calcCommercial()" onchange="calcCommercial()" id="num_LiftCage_Com" class="comChange" name="numberShaftCommercial">
+			
+		</div>
+
+		<!-- Corporate -->
+		<div id="corporate" align="center">
+			<!-- NumCompanies -->
+			<label class="fs-14">Number of separate companies:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" id="num_Company_Corp " name="numberBuissinessCorporate">
+
+
+			<!-- numFloors -->
+			<label class="fs-14">Number of floors:</label>
+			<input  type="number" min="0" value="" onkeyup="calcCorporate()" onchange="calcCorporate()" class="borderRadius_" id="num_Floors_Corp" name="numberFloorCorporate">
+
+
+			<!-- numBasement -->
+			<label class="fs-14">Number of basements:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" onkeyup="calcCorporate()" onchange="calcCorporate()" id="num_Basement_Corp" name="numBasementCorporate">
+
+
+			<!-- NumParkings-->
+			<label class="fs-14">Number of parking spots:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" id="num_parking_Corp" name="numberParkingCorporate">
+
+
+			<!-- numFloor -->
+			<label class="fs-14">Number of occupants per floor:</label>
+			<input  type="number" min="0" value="" name="num_Occ_Floor_Corp" onkeyup="calcCorporate()" onchange="calcCorporate()" class="borderRadius_" id="num_Occ_Floor_Corp" name="numberTenantCorporate">
+
+		</div>
+
+		<!--Hybrid -->
+		<div id="hybrid" align="center">
+			<!-- numBusinesses -->
+			<label class="fs-14">Number of distinct businesses:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" name="numberBuissinessHybrid">
+
+
+			<!-- numFloors -->
+			<label class="fs-14">Number of floors:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" onkeyup="calcHybrid()" onchange="calcHybrid()" id="num_Floor_Hyb" name="numberFloorHybrid">
+
+
+			<!-- numBasement -->
+			<label class="fs-14">Number of basements:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" onkeyup="calcHybrid()" onchange="calcHybrid()" id="num_Basement_Hyb" name="numBasementHybrid">
+
+
+			<!-- numParkings -->
+			<label class="fs-14">Number of parking spots:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" name="numberParkingHybrid">
+
+
+			<!-- numOccFloors-->
+			<label class="fs-14">Number of occupants per floor:</label>
+			<input  type="number" min="0" value="" class="borderRadius_" onkeyup="calcHybrid()" onchange="calcHybrid()"  id="num_Occ_Floor_Hyb" name="numberTenantHybrid">
+
+
+			<!-- hourActivity -->
+			<label class="fs-14">Number of hours of activity of the building:</label>
+			<input  type="number" min="0" max="24" value="" class="borderRadius_" >
+			<br>
+			<br>
+			<br>
+		</div>
+
+		<!--total-->
+		<div class="container">
+
+			<br>
+			<a id="numElevatorTotal" class="float-right" name=""> 0</a>
+
+			<input id="cc" class="float-right" name="numberElevator" type="hidden"/>
+				<span class="float-left">Number of elevators:</span>
+			</br>
+			<br>
+			<a id="installPrice" class="float-right" name=""> 0.00</a>
+			<input id="aa" class="float-right" name="installPrice" type="hidden"/>
+				<span class="float-left">Installation Price:</span>
+					<strong class="float-right">$</strong>
+				</span>
+			</br>
+			<br>
+			<a id="totalPrice" class="float-right" name="">0.00</a>
+			<input id="bb" class="float-right" name="totalPrice" type="hidden"/>
+
+				<strong class="float-left">TOTAL:</strong>
+				<strong class="float-right">$</strong>
+			</br>
+			<br>
+			<hr noshade="noshade">
+
+			<div class="row">
+			<div class="col-md-4">
+				<label for="contact:name">Full Name *</label>
+				<input required type="text" value="" class="form-control"
+					name="fullName" id="contact:name">
+			</div>
+			<div class="col-md-4">
+				<label for="contact:entName">Buisness Name *</label>
+				<input required type="text" value="" class="form-control"
+					name="BuissinessName" id="contact:entName">
+			</div>
+			<div class="col-md-4">
+				<label for="contact:email">Address *</label>
+				<input required type="" value="" class="form-control"
+					name="Adress" id="contact:email">
+			</div>
+			<div class="col-md-4">
+				<label for="contact:phone">Project Name *</label>
+				<input type="text" value="" class="form-control" name="ProjectName"
+					id="contact:phone">
+			</div>
+			<div class="col-md-4">
+				<label for="contact:phone">E-mail Address *</label>
+				<input type="text" value="" class="form-control" name="emailAddress"
+					id="contact:phone">
+			</div>
+			<div class="col-md-4">
+				<label for="contact:phone">Phone Number *</label>
+				<input type="text" value="" class="form-control" name="phoneNumber"
+					id="contact:phone">
+			</div>
+			
+		</div>
+		
+			<br>
+			<button href="" class="btn btn-info btn-lg btn-block" type="submit"> Submit Form</button>
+			</br>
+            <% end %>
+
+	</div>
+	</div>
+	</div>
+
+<br><br><br>
+
+
+<script src="/assets/nodeCalc.js"></script>
+<script>
+		var plugin_path = '/assets/plugins/';
+	</script> 
+
+
+
+	<script src="/assets/scripts.js"></script>
+
+
+
+	<!-- REVOLUTION SLIDER -->
+	<script src="/assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+	<script src="/assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="/assets/view/demo.revolution_slider.js"></script>
+	<!-- PAGELEVEL SCRIPTS -->
+</body>
+
+</html> 
