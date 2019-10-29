@@ -24,7 +24,7 @@ class TexttospeechController < ApplicationController
           You currently have #{Lead.count} leads in your contact requests. 
           #{Battery.count} Batteries are deployed across #{Building.joins(:address).select('addresses.city').distinct.count} cities",
           accept: "audio/wav",
-          voice: "en-US_AllisonVoice"
+          voice: "en-US_MichaelVoice"
         ).result
         audio_file << response  
         render 'index'
