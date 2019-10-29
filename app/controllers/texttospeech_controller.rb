@@ -7,7 +7,7 @@ class TexttospeechController < ApplicationController
 
     def create
     authenticator = IBMWatson::Authenticators::IamAuthenticator.new(
-        apikey: 'WhqMQ53YexicoPb5pp1USHlGmB-py5ATWnUcijlyRRY-'
+        apikey: ENV['WATSON']
       )
       text_to_speech = IBMWatson::TextToSpeechV1.new(
         authenticator: authenticator
