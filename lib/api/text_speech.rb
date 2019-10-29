@@ -21,6 +21,7 @@ class Watson
 
     def create_synthesized_audio    
         response = api.synthesize(
+            text: "Greetings to the logged users",
             accept: "audio/wav",
             voice: "en-US_AllisonVoice"
         )
