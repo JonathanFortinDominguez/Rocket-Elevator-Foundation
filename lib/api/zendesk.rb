@@ -10,13 +10,10 @@ class Zendesk
             # Basic / Token Authentication
             config.username = "christo.hardoin@gmail.com"
 
-            config.token = 'LJVNAz7Dp1yuGlpAfYjA3YA9cd5Jk9zZOoaQ9T1i'
+            config.token = ENV['ZENDESK_TOKEN']
         end
     end
 
-    def bonjour
-        puts "-------------------------"
-    end
 
     def get_a_quote(full_name, company_name, email, phone_number)
         ZendeskAPI::Ticket.create(@client, :subject => "#{full_name} from #{company_name}", :decription => "Create Ticket", :comment => { :value => "The contact #{full_name} from company #{company_name} can be reached at email #{email} and at phone number #{phone_number}."}, :submitter_id => @client.current_user.id, :type => "task", :priority => "urgent")

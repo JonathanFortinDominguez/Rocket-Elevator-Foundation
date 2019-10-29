@@ -21,7 +21,7 @@ def send_message
   puts "-------------------------"
   puts status
   if previous_changes[:status] != nil
-    SlackNotifier::CLIENT.ping "The Elevator #{id} with Serial Number #{serial_number} changed statusfrom #{previous_changes[:status][0]} to #{status}"
+    SlackNotifier::CLIENT.ping "The Elevator #{id} with Serial Number #{serial_number} changed status from #{previous_changes[:status][0]} to #{status}"
   
   end
 end

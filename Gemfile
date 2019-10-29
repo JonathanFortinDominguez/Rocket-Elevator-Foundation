@@ -49,6 +49,10 @@ gem 'slack-notifier'
 
 gem 'zendesk_api', '~> 1.20'
 
+gem 'ibm_watson'
+
+gem "figaro"
+
 gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'activerecord', '~> 5.0', '>= 5.0.0.1'
 gem 'whenever', require: false
