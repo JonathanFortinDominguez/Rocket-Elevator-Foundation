@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_184750) do
+ActiveRecord::Schema.define(version: 2019_10_30_141418) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -154,6 +154,10 @@ ActiveRecord::Schema.define(version: 2019_10_29_184750) do
     t.datetime "follow_up_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "customer_id"
+    t.binary "attachment_file", limit: 4294967295
+    t.string "original_file_name"
+    t.index ["customer_id"], name: "index_leads_on_customer_id"
   end
 
   create_table "pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -207,5 +211,6 @@ ActiveRecord::Schema.define(version: 2019_10_29_184750) do
   add_foreign_key "customers", "addresses"
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "columns"
+  add_foreign_key "leads", "customers"
   add_foreign_key "users", "employees"
 end
