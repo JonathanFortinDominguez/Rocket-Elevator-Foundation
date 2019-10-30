@@ -57,6 +57,7 @@ gem "figaro"
 
 gem 'dropbox_api'
 
+gem 'geocoder'
 
 gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'activerecord', '~> 5.0', '>= 5.0.0.1'

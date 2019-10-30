@@ -18,8 +18,8 @@ def upload_file
     client = DropboxApi::Client.new(ENV['DROPBOX_OAUTH_BEARER'])
     if lead.attachment_file != nil
       
- 
-      client.upload("/#{lead.businessName}/#{File.basename(lead.original_file_name)}_#{File.extname(lead.original_file_name)}", lead.attachment_file) 
+#  _#{File.extname(lead.original_file_name)}
+      client.upload("/#{lead.businessName}/#{File.basename(lead.original_file_name)}", lead.attachment_file) 
 
       lead.attachment_file = nil
       lead.original_file_name = nil

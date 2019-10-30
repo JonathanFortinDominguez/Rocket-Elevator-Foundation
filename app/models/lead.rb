@@ -1,4 +1,4 @@
-require './lib/api/zendesk.rb'
+require './lib/tasks/zendesk.rb'
 
 class Lead < ApplicationRecord
     include RailsAdminCharts

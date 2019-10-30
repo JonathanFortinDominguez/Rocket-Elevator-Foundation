@@ -40,7 +40,7 @@ end
 
 
 
-50.times do
+5.times do
     Quote.create!(
         Full_Name: Faker::Name.name,
         Address: Faker::Address.zip_code,
@@ -65,7 +65,7 @@ end
     )
 end
 
-50.times do 
+5.times do 
     Lead.create!(
         fullname: Faker::Name.name,
         businessName: Faker::Company.suffix,
@@ -81,30 +81,37 @@ end
 
 end
 
-50.times do 
-    Address.create!(
-        address_type: Faker::Lorem.sentence,
-        status: Faker::Lorem.sentence,
-        entity: Faker::Lorem.sentence,
-        street_number: Faker::Address.street_address,
-        apt_number: Faker::Number.between(from: 1000, to: 100000),
-        city: Faker::Address.state,
-        zip_code: Faker::Address.zip_code,
-        country: Faker::Address.country_name_to_code,
-        notes: Faker::Lorem.sentence,
-        created_at: Faker::Date.in_date_period
+Address.create(address_type: "building", status: "active", entity: "operational building", street_number: "684 rue des eaux fraiches", apt_number: "", city: "Quebec", zip_code: "g3g2c1", country: "canada", notes: "building")
+Address.create(address_type: "building", status: "active", entity: "operational building", street_number: "725 boulevard lebourgneuf", apt_number: "", city: "Quebec", zip_code: "g3g2c1", country: "canada", notes: "building")
+Address.create(address_type: "building", status: "active", entity: "operational building", street_number: "758 rue francois-arteau", apt_number: "", city: "Quebec", zip_code: "g3g2c1", country: "canada", notes: "building")
+Address.create(address_type: "building", status: "active", entity: "operational building", street_number: "374 1re ave portneuf", apt_number: "", city: "Quebec", zip_code: "g3g2c1", country: "canada", notes: "building")
+Address.create(address_type: "building", status: "active", entity: "operational building", street_number: "100 chopin plaza", apt_number: "", city: "Quebec", zip_code: "g3g2c1", country: "canada", notes: "building")
 
-    )
 
-end 
+# 5.times do 
+#     Address.create!(
+#         address_type: Faker::Lorem.sentence,
+#         status: Faker::Lorem.sentence,
+#         entity: Faker::Lorem.sentence,
+#         street_number: Faker::Address.street_address,
+#         apt_number: Faker::Number.between(from: 1000, to: 100000),
+#         city: Faker::Address.state,
+#         zip_code: Faker::Address.zip_code,
+#         country: Faker::Address.country_name_to_code,
+#         notes: Faker::Lorem.sentence,
+#         created_at: Faker::Date.in_date_period
 
-user_array = [*1..50]
-address_array = [*1..50]
+#     )
 
-50.times do
+# end 
+
+user_array = [*1..5]
+address_array = [*1..5]
+
+5.times do
     Customer.create!(
-        address_id: Faker::Number.between(from: 1, to: 50),
-        user_id: Faker::Number.between(from: 1, to: 50),
+        address_id: Faker::Number.between(from: 1, to: 5),
+        user_id: Faker::Number.between(from: 1, to: 5),
         creation_date: Faker::Date.in_date_period,
         business_name: Faker::Company.suffix,
         full_name: Faker::Name.first_name,
@@ -119,7 +126,7 @@ address_array = [*1..50]
     )
 end
 
-50.times do 
+5.times do 
     Building.create!(
         fullName_building_administrator: Faker::Name.name,
         email_building_administrator: Faker::Internet.email,
@@ -128,8 +135,8 @@ end
         email_service_contact: Faker::Internet.email,
         phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
         created_at: Faker::Date.in_date_period,
-        address_id: Faker::Number.between(from: 1, to: 50),
-        customer_id: Faker::Number.between(from: 1, to: 50),
+        address_id: Faker::Number.between(from: 1, to: 5),
+        customer_id: Faker::Number.between(from: 1, to: 5),
 
     )
 
@@ -137,7 +144,7 @@ end
 
 type_of_building_array = ["Residential", "Commercial", "Corporative", "Hybrid"]
 
-50.times do 
+5.times do 
     Battery.create!(
         type_of_building: type_of_building_array.sample,
         status: Faker::Lorem.words,
@@ -146,39 +153,39 @@ type_of_building_array = ["Residential", "Commercial", "Corporative", "Hybrid"]
         certificat: Faker::Lorem.sentence,
         info: Faker::Lorem.sentence,
         notes: Faker::Lorem.sentence,
-        building_id: Faker::Number.between(from: 1, to: 50),
+        building_id: Faker::Number.between(from: 1, to: 5),
         employee_id: Faker::Number.between(from: 1, to: 9),
         created_at: Faker::Date.in_date_period
 
     )
 end 
 
-50.times do 
+5.times do 
     BuildingDetail.create!(
         information: Faker::Lorem.sentence,
         value: Faker::Lorem.sentence,
         created_at: Faker::Date.in_date_period,
-        building_id: Faker::Number.between(from: 1, to: 50),
+        building_id: Faker::Number.between(from: 1, to: 5),
 
     )
 end 
 
-50.times do 
+5.times do 
     Column.create!(
         type_of_building: type_of_building_array.sample,
-        number_of_floor: Faker::Number.between(from: 2, to: 50),
+        number_of_floor: Faker::Number.between(from: 2, to: 5),
         status: Faker::Lorem.sentence,
         information: Faker::Lorem.sentence,
         notes: Faker::Lorem.sentence,
         created_at: Faker::Date.in_date_period,
-        battery_id: Faker::Number.between(from: 1, to: 50)
+        battery_id: Faker::Number.between(from: 1, to: 5)
     )
 end
 
 
-elev_array = [*1..50]
+elev_array = [*1..5]
 
-50.times do 
+5.times do 
     Elevator.create!(
         serial_number: Faker::Number.hexadecimal,
         model: Faker::Lorem.words,
@@ -195,7 +202,7 @@ elev_array = [*1..50]
 
 end
 
-50.times do 
+5.times do 
     Elevator.create!(
         serial_number: Faker::Number.hexadecimal,
         model: Faker::Lorem.words,
@@ -207,7 +214,7 @@ end
         information: Faker::Lorem.sentence,
         notes: Faker::Lorem.sentence,
         created_at: Faker::Date.in_date_period,
-        column_id: Faker::Number.between(from: 1, to: 50)
+        column_id: Faker::Number.between(from: 1, to: 5)
     )
 
 end
