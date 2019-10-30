@@ -45,6 +45,8 @@ gem 'sendgrid-ruby'
 
 gem 'twilio-ruby', '~> 5.28.0'
 
+gem 'rake'
+
 gem 'slack-notifier'
 
 gem 'zendesk_api', '~> 1.20'
@@ -52,6 +54,9 @@ gem 'zendesk_api', '~> 1.20'
 gem 'ibm_watson'
 
 gem "figaro"
+
+gem 'dropbox_api'
+
 
 gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'activerecord', '~> 5.0', '>= 5.0.0.1'

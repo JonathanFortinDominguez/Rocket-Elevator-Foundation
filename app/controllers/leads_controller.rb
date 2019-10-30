@@ -26,7 +26,7 @@ class LeadsController < ApplicationController
       desc = params['projectDescContact']
       department = params['department']
       message = params['messageContact']
-
+      attach = params['attachment']
       @leads = Lead.new
 
       @leads.fullname = fullname
@@ -37,10 +37,23 @@ class LeadsController < ApplicationController
       @leads.projectDescription = desc
       @leads.departement = department
       @leads.message = message
-      @leads.attachment.attach(params[:attachment])
+      @leads.attachment_file = attach
+     
       @leads.follow_up_date = Time.current
 
+
+      # add file ext to upload file in dropbox
+      if @leads.attachment_file != nil
+        file_name = @leads.attachment_file.original_filename
+        @leads.attachment_file = @leads.attachment_file.read
+        @leads.original_file_name = file_name
+      end
+
+
+      @leads.attachment.attach(params[:attachment])
       @leads.save!
+
+      
 
       # UserNotifierMailer.send_signup_email(@leads).deliver
       @leads.contact

@@ -20,15 +20,15 @@ Employee.create(lastname: 'Fortier', name: 'Nadya', function: 'Director', email:
 Employee.create(lastname: 'Chantal', name: 'Martin', function: 'Engineer', email: 'martin.chantal@codeboxx.biz', encrypted_password: '123456')
 
 
-User.create(email: 'nicolas.genest@codeboxx.biz', password: "test123", admin: true)
-User.create(email: 'david.boutin@codeboxx.biz', password: "test123", admin: true)
-User.create(email: 'remi.gagnon@codeboxx.biz', password: "test123", admin: true)
-User.create(email: 'mathieu.lefrancois@codeboxx.biz', password: "test123", admin: true)
-User.create(email: 'mathieu.lortie@codeboxx.biz', password: "test123", admin: true)
-User.create(email: 'mathieu.houde@codeboxx.biz', password: "test123", admin: true)
-User.create(email: 'serge.savoie@codeboxx.biz', password: "test123", admin: true)
-User.create(email: 'nadya.fortier@codeboxx.biz', password: "test123", admin: true)
-User.create(email: 'martin.chantal@codeboxx.biz', password: "test123", admin: true)
+User.create(email: 'nicolas.genest@codeboxx.biz', password: "test123", employee_id: 1, admin: true)
+User.create(email: 'david.boutin@codeboxx.biz', password: "test123", employee_id: 2, admin: true)
+User.create(email: 'remi.gagnon@codeboxx.biz', password: "test123", employee_id: 3, admin: true)
+User.create(email: 'mathieu.lefrancois@codeboxx.biz', password: "test123", employee_id: 4, admin: true)
+User.create(email: 'mathieu.lortie@codeboxx.biz', password: "test123", employee_id: 5, admin: true)
+User.create(email: 'mathieu.houde@codeboxx.biz', password: "test123", employee_id: 6, admin: true)
+User.create(email: 'serge.savoie@codeboxx.biz', password: "test123", employee_id: 7, admin: true)
+User.create(email: 'nadya.fortier@codeboxx.biz', password: "test123", employee_id: 8, admin: true)
+User.create(email: 'martin.chantal@codeboxx.biz', password: "test123", employee_id: 9, admin: true)
 User.create(email: 'test@test.com', password: "test123", admin: true)
 
 40.times do 

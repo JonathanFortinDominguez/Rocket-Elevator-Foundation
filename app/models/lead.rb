@@ -3,7 +3,10 @@ require './lib/api/zendesk.rb'
 class Lead < ApplicationRecord
     include RailsAdminCharts
     has_one_attached :attachment
+    belongs_to :customer, optional: true
     
+
+
     def self.chart_type
         "column"
     end

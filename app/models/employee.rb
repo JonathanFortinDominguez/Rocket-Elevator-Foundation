@@ -6,6 +6,7 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :rememberable
 
+  has_many :user
   
 
 
