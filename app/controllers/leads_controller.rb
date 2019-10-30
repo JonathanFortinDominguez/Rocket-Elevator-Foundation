@@ -49,13 +49,12 @@ class LeadsController < ApplicationController
         @leads.original_file_name = file_name
       end
 
-      
+
       @leads.attachment.attach(params[:attachment])
       @leads.save!
 
       
 
-      @leads.upload_file
       # UserNotifierMailer.send_signup_email(@leads).deliver
       @leads.contact
 

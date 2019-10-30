@@ -6,10 +6,28 @@ class Customer < ApplicationRecord
   has_many :leads
   has_many :buildings
 
+after_update :upload_file
   
   def self.chart_type
     "column"
 end
 
 
+def upload_file
+  self.leads.all.each do |lead|
+    client = DropboxApi::Client.new(ENV['DROPBOX_OAUTH_BEARER'])
+    if lead.attachment_file != nil
+      
+ 
+      client.upload("/#{lead.businessName}/#{File.basename(lead.original_file_name)}_#{File.extname(lead.original_file_name)}", lead.attachment_file) 
+
+      lead.attachment_file = nil
+      lead.original_file_name = nil
+      lead.attachment.purge
+
+      lead.save!
+
+    end
+  end
+end
 end
