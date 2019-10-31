@@ -14,7 +14,8 @@ function myMap() {
     var marker = new google.maps.Marker({
         
         position : new google.maps.LatLng(<%= @coord_x[i.id-1] %>, <%= @coord_y[i.id-1] %>),
-        animation:google.maps.Animation.DROP
+        animation:google.maps.Animation.DROP,
+        icon: 'assets/rsz_re-icon.png'
 
         
     });

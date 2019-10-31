@@ -40,6 +40,7 @@ require "capistrano/rails"
 require "capistrano/puma"
 require "whenever/capistrano"
 require 'capistrano/rake'
+require 'capistrano/figaro_yml'
 install_plugin Capistrano::Puma
 install_plugin Capistrano::Puma::Nginx
 

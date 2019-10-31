@@ -91,6 +91,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'capistrano',      require: false
   gem 'capistrano-rake', require: false
+  gem 'capistrano-figaro-yml', '~> 1.0.2'
 end
 
 group :test do
