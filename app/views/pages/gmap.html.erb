@@ -23,7 +23,7 @@ function myMap() {
 // to close window, found on https://stackoverflow.com/questions/2223574/google-maps-auto-close-open-infowindows
 
      marker.window = new google.maps.InfoWindow({
-               content: " <h1> <%= Address.find(i.id).street_number %></h1> <p> Customer name: <%= @customer_name[i.id-1] %> </p> <p> Number of battery: <%= @number_battery[i.id-1] %> </p> <p> Number of column: <%= @number_column[i.id-1]  %> </p> <p> Number Elevators: <%= @number_elevator[i.id-1]  %> </p> <p> Service Contact: <%= @service_name[i.id-1] %> </p>"
+               content: " <h1> <%= Address.find(i.id).street_number %></h1> <hr noShade> <p> Customer name: <%= @customer_name[i.id-1] %> </p> <p> Number of battery: <%= @number_battery[i.id-1] %> </p> <p> Number of column: <%= @number_column[i.id-1]  %> </p> <p> Number Elevators: <%= @number_elevator[i.id-1]  %> </p> <p> Service Contact: <%= @service_name[i.id-1] %> </p> <p>Temperature: <%= @weather[i.id-1] %>° </p>"
            });
            marker.addListener('click', function() {
                 if( close ) {
@@ -36,33 +36,11 @@ function myMap() {
 
     marker.setMap(map);
     
-// // Add multiple markers to map
-//    var infoWindow = new google.maps.InfoWindow(), marker, i;
-//    // Place each marker on the map
-//    for( i = 0; i < markers.length; i++ ) {
-//        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-//        bounds.extend(position);
-//        marker = new google.maps.Marker({
-//            position: position,
-//            map: map,
-//            title: markers[i][0]
-//        });
-//        // Add info window to marker
-//        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-//            return function() {
-//                infoWindow.setContent(infoWindowContent[i][0]);
-//                infoWindow.open(map, marker);
-//            }
-//        })(marker, i));
-//        // Center the map to fit all markers on the screen
-//        map.fitBounds(bounds);
-//    }
-
 
     <% end %>
 
 }
 
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_KEY'] %>&callback=myMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=myMap"></script>
 
