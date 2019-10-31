@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  get 'pages/google9bcd4975733edb07'
   get 'gmap' => 'pages#gmap'
   get 'texttospeech/create'
   get 'rails_admin/application/create'
