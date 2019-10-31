@@ -52,21 +52,12 @@
     </tbody>
   </table>
 
-  <audio autoplay >
+
+  <audio controls>
 	<source src=/texttospeech/create type="audio/wav">
 	<source id='audio' src='output.wav' type='audio/wav'>
-	<% puts "played------------------------" %>
 	</audio>
-<!--    <script> 
-    function play(){
-       var audio = document.getElementById("audio");
-       audio.play();
-                 }
-    $(document).ready(function() {
-        play()
 
-});
-    </script> -->
   <div>
 <% end %>
 <% if @auditing_adapter && authorized?(:history_index) %>

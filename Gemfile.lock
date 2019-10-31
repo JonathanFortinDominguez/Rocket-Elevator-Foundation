@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: e78f6482729440491f8fc5d9202e1bac735db18e
+  revision: be3933d7bcb12b5c86dfa9793984c82d20f30d79
   branch: master
   specs:
     faker (2.6.0)
@@ -171,7 +171,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
-    ibm_cloud_sdk_core (1.0.0)
+    ibm_cloud_sdk_core (1.0.1)
       concurrent-ruby (~> 1.0)
       http (~> 4.1.0)
       jwt (~> 2.2.1)
