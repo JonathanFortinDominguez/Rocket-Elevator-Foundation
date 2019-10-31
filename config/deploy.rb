@@ -3,8 +3,8 @@ lock "~> 3.11.0"
 
 before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
-set :application, "windorDormeus"
-set :repo_url, "https://github.com/windor16/Rocket_Elevators_Information_System_2"
+set :application, "christohardoin"
+set :repo_url, "https://github.com/ChristoHardoin/RocketElevators_API.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
