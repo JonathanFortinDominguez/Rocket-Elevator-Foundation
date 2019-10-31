@@ -10,8 +10,8 @@ class Sms
     def call
         client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
         client.messages.create({
-            from: ENV['TWILIO_FROM'],
-            to: ENV['TWILIO_TO'],
+            from: '+12248033166',
+            to: '+14189285443',
             body: message
         })
     end

@@ -130,7 +130,7 @@ Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array
 Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array.sample, entity: "Operational Building", street_number: "6139 Tweed St NE", apt_number: "", city: "Calgary", zip_code: "T2K3W9 ", country: "Canada", notes: Faker::Types.rb_string)
 Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array.sample, entity: "Operational Building", street_number: "70 Cedardale Cres SW", apt_number: "", city: "Calgary", zip_code: "T2W3Z5", country: "Canada", notes: Faker::Types.rb_string)
 Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array.sample, entity: "Operational Building", street_number: "2867 18th Ave E", apt_number: "", city: "Vancouver", zip_code: "V5M2R1", country: "Canada", notes: Faker::Types.rb_string)
-Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array.sample, entity: "Operational Building", street_number: "62 Desjardins Dr", apt_number: "", city: "Winnipeg", zip_code: "R3X1M7", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array.sample, entity: "Operational Building", street_number: "1784 rue des herbes sauvages", apt_number: "", city: "Quebec", zip_code: "G3J0E6", country: "Canada", notes: Faker::Types.rb_string)
 Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array.sample, entity: "Operational Building", street_number: "19 Kowall Bay", apt_number: "", city: "Winnipeg", zip_code: "R2P1A7", country: "Canada", notes: Faker::Types.rb_string)
 
 
@@ -156,7 +156,7 @@ user_id_array = [*11..20]
     )
 end
 
-address_id_array = [*11..30]
+address_id_array = [*1..30]
 customer_id_array = [*1..10]
 
 10.times do 
@@ -178,7 +178,8 @@ end
 
 customer_id_array = [*1..10]
 
-10.times do 
+20.times do     
+
     Building.create!(
         fullName_building_administrator: Faker::Name.first_name.delete("\'"),
         email_building_administrator: Faker::Internet.email,
@@ -292,3 +293,4 @@ column_id_array =[*1..80]
         column_id: column_id_array.sample
     )
 end
+

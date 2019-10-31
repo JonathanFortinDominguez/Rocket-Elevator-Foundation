@@ -9,6 +9,7 @@ class Elevator < ApplicationRecord
 end
 
 after_update :send_message, :sms_status_change
+
 def sms_status_change
   if status == "Intervention"
     message = "The elevator #{id} status has changed"

@@ -20,6 +20,23 @@ class PagesController < ApplicationController
 
   def gmap
 
+
+    
+      @user = current_user
+      if @user.nil?
+        redirect_to main_app.root_path, :alert => "Need God power to access this page!"
+      elsif !@user.admin?
+        redirect_to main_app.root_path, :alert => "Need God power to access this page!"
+      end
+    
+    
+
+    Geocoder.configure(
+      timeout: 15,                 # geocoding service timeout (secs)
+      lookup: :google,            # name of geocoding service (symbol)
+      api_key: ENV["GOOGLE_API_KEY"]           # API key for geocoding service
+    )
+    
     @coord_x = []
     @coord_y = []
     @customer_name = []
@@ -27,6 +44,7 @@ class PagesController < ApplicationController
     @number_column = []
     @number_elevator = []
     @service_name = []
+    @markerList = []
 
     for x in Building.all.each do
 
@@ -45,9 +63,14 @@ class PagesController < ApplicationController
       @number_elevator.push(Elevator.where(column_id: x.batteries).count)
     
       @service_name.push(x.customer.fullname_service_person)
+
+      @markerList.push(x.id)
+
+      
+      p Address.find(x.id).street_number
     end
-    p @coord_x
-    p @coord_y
+
+    p @markerList
 
 
     
