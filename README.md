@@ -1,6 +1,7 @@
 # README
 
-Original Repos : https://github.com/windor16/Rocket_Elevator_Information_System.git, due to some issue we deploy the website from this repos
+
+
 
 * To Log In with test user : email => test@test.com password => test123
 * Every employee password => test123, use test user to access backoffice and see all the tables
