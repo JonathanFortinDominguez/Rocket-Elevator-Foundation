@@ -57,6 +57,10 @@ gem "figaro"
 
 gem 'dropbox_api'
 
+gem 'open-weather'
+
+gem 'faraday'
+
 gem 'geocoder'
 
 gem 'pg', '~> 1.1', '>= 1.1.4'
