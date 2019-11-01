@@ -38,3 +38,6 @@ sendgrid.env
 /config/application.yml
 twilio.env
 
+
+# Ignore application configuration
+/config/application.yml

@@ -2,6 +2,8 @@ require 'zendesk_api'
 class Zendesk
     def initialize
         
+        # Code found in zendesk api gem https://github.com/zendesk/zendesk_api_client_rb
+
         @client = ZendeskAPI::Client.new do |config|
             # Mandatory:
 
