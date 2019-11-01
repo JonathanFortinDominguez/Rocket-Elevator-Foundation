@@ -13,13 +13,12 @@ Rails.application.routes.draw do
   get 'gmap' => 'pages#gmap'
   get 'texttospeech/create'
   get 'rails_admin/application/create'
-  get 'leads' => 'leads#new'
   get 'quotes' => 'quotes#new'
   get 'residentialService' => 'pages#residentialService'
   get 'corporateService' => 'pages#corporateService'
   root 'pages#index'
 
-  resources :leads
+  resources :pages
   resources :quotes
 
 end
