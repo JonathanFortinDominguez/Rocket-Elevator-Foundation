@@ -2,6 +2,8 @@ require 'twilio-ruby'
 class Sms       
     attr_reader :message
 
+    # Used twilio api gem to send sms https://github.com/twilio/twilio-ruby
+
     def initialize(message)
         @message = message
     end

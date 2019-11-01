@@ -5,6 +5,8 @@ require "ibm_watson/authenticators"
 class TexttospeechController < ApplicationController
     include IBMWatson
 
+    # https://github.com/watson-developer-cloud/ruby-sdk code came from an example from this github
+
     def create
       authenticator = IBMWatson::Authenticators::IamAuthenticator.new(
         apikey: ENV['WATSON']
