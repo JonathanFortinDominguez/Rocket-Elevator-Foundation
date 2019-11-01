@@ -7,6 +7,7 @@ class CreateEmployeesTable < ActiveRecord::Migration[5.2]
       t.string :function
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.timestamps
     end
   end
 end

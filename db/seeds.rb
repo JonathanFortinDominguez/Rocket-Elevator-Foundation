@@ -9,15 +9,15 @@
 require 'faker'
 
 
-Employee.create(lastname: 'Genest', name: 'Nicolas', function: 'Comm Rep', email: 'nicolas.genest@codeboxx.biz', encrypted_password: '123456')
-Employee.create(lastname: 'Boutin', name: 'David', function: 'Engineer', email: 'david.boutin@codeboxx.biz', encrypted_password: '123456')
-Employee.create(lastname: 'Gagnon', name: 'Remi', function: 'Engineer', email: 'remi.gagnon@codeboxx.biz', encrypted_password: '123456')
-Employee.create(lastname: 'LeFrançois', name: 'Mathieu', function: 'Engineer', email: 'mathieu.lefrancois@codeboxx.biz', encrypted_password: '123456')
-Employee.create(lastname: 'Lortie', name: 'Mathieu', function: 'Engineer', email: 'mathieu.lortie@codeboxx.biz', encrypted_password: '123456')
-Employee.create(lastname: 'Houde', name: 'Mathieu', function: 'Engineer', email: 'mathieu.houde@codeboxx.biz', encrypted_password: '123456')
-Employee.create(lastname: 'Savoie', name: 'Serge', function: 'Engineer', email: 'serge.savoie@codeboxx.biz', encrypted_password: '123456')
-Employee.create(lastname: 'Fortier', name: 'Nadya', function: 'Director', email: 'nadya.fortier@codeboxx.biz', encrypted_password: '123456')
-Employee.create(lastname: 'Chantal', name: 'Martin', function: 'Engineer', email: 'martin.chantal@codeboxx.biz', encrypted_password: '123456')
+Employee.create(lastname: 'Genest', name: 'Nicolas', function: 'Comm Rep', email: 'nicolas.genest@codeboxx.biz', encrypted_password: '123456', created_at: Faker::Time.between(from: 6.years.ago, to: 5.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+Employee.create(lastname: 'Boutin', name: 'David', function: 'Engineer', email: 'david.boutin@codeboxx.biz', encrypted_password: '123456', created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+Employee.create(lastname: 'Gagnon', name: 'Remi', function: 'Engineer', email: 'remi.gagnon@codeboxx.biz', encrypted_password: '123456', created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+Employee.create(lastname: 'LeFrançois', name: 'Mathieu', function: 'Engineer', email: 'mathieu.lefrancois@codeboxx.biz', encrypted_password: '123456', created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+Employee.create(lastname: 'Lortie', name: 'Mathieu', function: 'Engineer', email: 'mathieu.lortie@codeboxx.biz', encrypted_password: '123456', created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+Employee.create(lastname: 'Houde', name: 'Mathieu', function: 'Engineer', email: 'mathieu.houde@codeboxx.biz', encrypted_password: '123456', created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+Employee.create(lastname: 'Savoie', name: 'Serge', function: 'Engineer', email: 'serge.savoie@codeboxx.biz', encrypted_password: '123456', created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+Employee.create(lastname: 'Fortier', name: 'Nadya', function: 'Director', email: 'nadya.fortier@codeboxx.biz', encrypted_password: '123456', created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+Employee.create(lastname: 'Chantal', name: 'Martin', function: 'Engineer', email: 'martin.chantal@codeboxx.biz', encrypted_password: '123456', created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
 
 43.times do 
     Employee.create!(
@@ -26,30 +26,29 @@ Employee.create(lastname: 'Chantal', name: 'Martin', function: 'Engineer', email
         lastname: Faker::Name.last_name.delete("\'"),
         function: Faker::Construction.role,     
         email: Faker::Internet.email,
-        password: '123456'
-        # created_at: Faker::Time.between(4.years.ago, 7.months.ago, :all),
-        # updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
+        password: '123456',
+        created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+        updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
     )
 end
 
 
-User.create(email: 'nicolas.genest@codeboxx.biz', password: "test123", employee_id: 1, admin: true)
-User.create(email: 'david.boutin@codeboxx.biz', password: "test123", employee_id: 2, admin: true)
-User.create(email: 'remi.gagnon@codeboxx.biz', password: "test123", employee_id: 3, admin: true)
-User.create(email: 'mathieu.lefrancois@codeboxx.biz', password: "test123", employee_id: 4, admin: true)
-User.create(email: 'mathieu.lortie@codeboxx.biz', password: "test123", employee_id: 5, admin: true)
-User.create(email: 'mathieu.houde@codeboxx.biz', password: "test123", employee_id: 6, admin: true)
-User.create(email: 'serge.savoie@codeboxx.biz', password: "test123", employee_id: 7, admin: true)
-User.create(email: 'nadya.fortier@codeboxx.biz', password: "test123", employee_id: 8, admin: true)
-User.create(email: 'martin.chantal@codeboxx.biz', password: "test123", employee_id: 9, admin: true)
-User.create(email: 'test@test.com', password: "test123", admin: true)
+User.create(email: 'nicolas.genest@codeboxx.biz', password: "test123", employee_id: 1, admin: true, created_at: Faker::Time.between(from: 6.years.ago, to: 5.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+User.create(email: 'david.boutin@codeboxx.biz', password: "test123", employee_id: 2, admin: true, created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+User.create(email: 'remi.gagnon@codeboxx.biz', password: "test123", employee_id: 3, admin: true, created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+User.create(email: 'mathieu.lefrancois@codeboxx.biz', password: "test123", employee_id: 4, admin: true, created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+User.create(email: 'mathieu.lortie@codeboxx.biz', password: "test123", employee_id: 5, admin: true, created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+User.create(email: 'mathieu.houde@codeboxx.biz', password: "test123", employee_id: 6, admin: true, created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+User.create(email: 'serge.savoie@codeboxx.biz', password: "test123", employee_id: 7, admin: true, created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+User.create(email: 'nadya.fortier@codeboxx.biz', password: "test123", employee_id: 8, admin: true, created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
+User.create(email: 'martin.chantal@codeboxx.biz', password: "test123", employee_id: 9, admin: true, created_at: Faker::Time.between(from: 5.years.ago, to: 4.years.ago), updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now))
 
-40.times do 
+127.times do 
     User.create!(
         email: Faker::Internet.email,
-        password: Faker::Internet.password(min_length: 8)
-        # created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
+        password: Faker::Internet.password(min_length: 8),
+        created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+        updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
     )
 end
 
@@ -79,9 +78,9 @@ type_of_service_array = ["Standard", "Premium", "Excelium"]
         numberParking: Faker::Number.between(from: 20, to: 1000),
         numberShaft: Faker::Number.between(from: 1000, to: 100000),
         numberTenant: Faker::Number.between(from: 1, to: 1000),
-        maximumPerFloor: Faker::Number.between(from: 100, to: 1100)
-        # created_at: Faker::Time.between(6.months.ago, 2.weeks.ago, :all),
-        # updated_at: Faker::Time.between(2.weeks.ago, Time.now, :all)
+        maximumPerFloor: Faker::Number.between(from: 100, to: 1100),
+        created_at: Faker::Time.between(from: 6.months.ago, to: 2.weeks.ago),
+        updated_at: Faker::Time.between(from: 2.weeks.ago, to: Time.now)
     )
 end
 
@@ -95,23 +94,23 @@ end
         projectDescription: Faker::Address.zip_code,
         departement: Faker::Address.city,
         message: Faker::Lorem.sentence,
-        follow_up_date: Faker::Date.in_date_period
-        # created_at: Faker::Time.between(5.months.ago, Time.now, :all),
-        # updated_at: Faker::Time.between(2.weeks.ago, Time.now, :all)
+        follow_up_date: Faker::Date.in_date_period,
+        created_at: Faker::Time.between(from: 5.months.ago, to: Time.now),
+        updated_at: Faker::Time.between(from: 2.weeks.ago, to: Time.now)
     )
 
 end
 
-Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address", street_number: "684 rue des eaux fraiches", apt_number: Faker::Address.secondary_address.delete("\'"), city: "Quebec", zip_code: "G3G2C1", country: "Canada", notes: Faker::Types.rb_string)
-Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address", street_number: "725 boulevard lebourgneuf", apt_number: "G2J1S1", city: "Quebec", zip_code: "", country: "Canada", notes: Faker::Types.rb_string)
-Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address", street_number: "758 rue francois-arteau", apt_number: Faker::Address.secondary_address.delete("\'"), city: "Quebec", zip_code: "G1V3G7", country: "Canada", notes: Faker::Types.rb_string)
-Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address", street_number: "374 1re ave portneuf", apt_number: "", city: "Quebec", zip_code: "G0A2Y0", country: "Canada", notes: Faker::Types.rb_string)
-Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address", street_number: "161 Saint-Catherine St W E", apt_number: "", city: "Montreal", zip_code: "H2X1K8", country: "Canada", notes: Faker::Types.rb_string)
-Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address", street_number: "980 Boulevard de Maisonneuve O", apt_number: "", city: "Montreal", zip_code: "H3A1N4", country: "Canada", notes: Faker::Types.rb_string)
-Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address", street_number: "5677 Park Ave H2V 4H2", apt_number: Faker::Address.secondary_address.delete("\'"), city: "Montreal", zip_code: "H2V4H2", country: "Canada", notes: Faker::Types.rb_string)
-Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address", street_number: "2055 Robertson Rd", apt_number: "", city: "Ottawa", zip_code: " K2H5Y9", country: "Canada", notes: Faker::Types.rb_string)
-Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address", street_number: "500 Brisebois Cres", apt_number: Faker::Address.secondary_address.delete("\'"), city: "Ottawa", zip_code: "K1E0A6", country: "Canada", notes: Faker::Types.rb_string)
-Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address", street_number: "37 Chemin Rockhurst", apt_number: "", city: "Ottawa", zip_code: "J0X3G0", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address and Operational building (Headquarters)", street_number: "684 rue des eaux fraiches", apt_number: Faker::Address.secondary_address.delete("\'"), city: "Quebec", zip_code: "G3G2C1", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address and Operational building (Headquarters)", street_number: "725 boulevard lebourgneuf", apt_number: "G2J1S1", city: "Quebec", zip_code: "", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address and Operational building (Headquarters)", street_number: "758 rue francois-arteau", apt_number: Faker::Address.secondary_address.delete("\'"), city: "Quebec", zip_code: "G1V3G7", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address and Operational building (Headquarters)", street_number: "374 1re ave portneuf", apt_number: "", city: "Quebec", zip_code: "G0A2Y0", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address and Operational building (Headquarters)", street_number: "161 Saint-Catherine St W E", apt_number: "", city: "Montreal", zip_code: "H2X1K8", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address and Operational building (Headquarters)", street_number: "980 Boulevard de Maisonneuve O", apt_number: "", city: "Montreal", zip_code: "H3A1N4", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address and Operational building (Headquarters)", street_number: "5677 Park Ave H2V 4H2", apt_number: Faker::Address.secondary_address.delete("\'"), city: "Montreal", zip_code: "H2V4H2", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address and Operational building (Headquarters)", street_number: "2055 Robertson Rd", apt_number: "", city: "Ottawa", zip_code: " K2H5Y9", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address and Operational building (Headquarters)", street_number: "500 Brisebois Cres", apt_number: Faker::Address.secondary_address.delete("\'"), city: "Ottawa", zip_code: "K1E0A6", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: Faker::Name.name.delete("\'"), status: "Active", entity: "Billing Address and Operational building (Headquarters)", street_number: "37 Chemin Rockhurst", apt_number: "", city: "Ottawa", zip_code: "J0X3G0", country: "Canada", notes: Faker::Types.rb_string)
 Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array.sample, entity: "Operational Building", street_number: "290 Bremner Blvd", apt_number: "", city: "Toronto", zip_code: "M5V3L9", country: "Canada", notes: Faker::Types.rb_string)
 Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array.sample, entity: "Operational Building", street_number: "1442 Lawrence Ave W", apt_number: "", city: "Toronto", zip_code: "M6L1B5", country: "Canada", notes: Faker::Types.rb_string)
 Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array.sample, entity: "Operational Building", street_number: "110 Canongate Trail", apt_number: "", city: "Toronto", zip_code: "M1V2Z5", country: "Canada", notes: Faker::Types.rb_string)
@@ -133,49 +132,297 @@ Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array
 Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array.sample, entity: "Operational Building", street_number: "1784 rue des herbes sauvages", apt_number: "", city: "Quebec", zip_code: "G3J0E6", country: "Canada", notes: Faker::Types.rb_string)
 Address.create(address_type: Faker::Name.name.delete("\'"), status: status_array.sample, entity: "Operational Building", street_number: "19 Kowall Bay", apt_number: "", city: "Winnipeg", zip_code: "R2P1A7", country: "Canada", notes: Faker::Types.rb_string)
 
+Customer.create(
+    address_id: 1,
+    user_id: 10,
+    creation_date: Faker::Date.in_date_period,
+    business_name: Faker::Company.name.delete("\'"),
+    full_name: Faker::Name.first_name,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    email: Faker::Internet.email,
+    business_desc: Faker::Company.type,
+    fullname_service_person:Faker::Company.name.delete("\'"),
+    phone_service_person: Faker::PhoneNumber.phone_number_with_country_code,
+    email_service_person: Faker::Internet.email,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
+)
 
-address_id_array = [*1..10]
-user_id_array = [*11..20]
+Customer.create(
+    address_id: 2,
+    user_id: 13,
+    creation_date: Faker::Date.in_date_period,
+    business_name: Faker::Company.name.delete("\'"),
+    full_name: Faker::Name.first_name,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    email: Faker::Internet.email,
+    business_desc: Faker::Company.type,
+    fullname_service_person:Faker::Company.name.delete("\'"),
+    phone_service_person: Faker::PhoneNumber.phone_number_with_country_code,
+    email_service_person: Faker::Internet.email,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
+)
 
+Customer.create(
+    address_id: 3,
+    user_id: 16,
+    creation_date: Faker::Date.in_date_period,
+    business_name: Faker::Company.name.delete("\'"),
+    full_name: Faker::Name.first_name,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    email: Faker::Internet.email,
+    business_desc: Faker::Company.type,
+    fullname_service_person:Faker::Company.name.delete("\'"),
+    phone_service_person: Faker::PhoneNumber.phone_number_with_country_code,
+    email_service_person: Faker::Internet.email,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
+)
 
-10.times do
-    Customer.create!(
-        address_id: address_id_array.delete(address_id_array.sample),
-        user_id: user_id_array.delete(user_id_array.sample),
-        creation_date: Faker::Date.in_date_period,
-        business_name: Faker::Company.name.delete("\'"),
-        full_name: Faker::Name.first_name,
-        phone_number: Faker::PhoneNumber.phone_number_with_country_code,
-        email: Faker::Internet.email,
-        business_desc: Faker::Company.type,
-        fullname_service_person:Faker::Company.name.delete("\'"),
-        phone_service_person: Faker::PhoneNumber.phone_number_with_country_code,
-        email_service_person: Faker::Internet.email
-        # created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
-    )
-end
+Customer.create(
+    address_id: 4,
+    user_id: 18,
+    creation_date: Faker::Date.in_date_period,
+    business_name: Faker::Company.name.delete("\'"),
+    full_name: Faker::Name.first_name,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    email: Faker::Internet.email,
+    business_desc: Faker::Company.type,
+    fullname_service_person:Faker::Company.name.delete("\'"),
+    phone_service_person: Faker::PhoneNumber.phone_number_with_country_code,
+    email_service_person: Faker::Internet.email,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
+)
 
-address_id_array = [*1..30]
-customer_id_array = [*1..10]
+Customer.create(
+    address_id: 5,
+    user_id: 19,
+    creation_date: Faker::Date.in_date_period,
+    business_name: Faker::Company.name.delete("\'"),
+    full_name: Faker::Name.first_name,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    email: Faker::Internet.email,
+    business_desc: Faker::Company.type,
+    fullname_service_person:Faker::Company.name.delete("\'"),
+    phone_service_person: Faker::PhoneNumber.phone_number_with_country_code,
+    email_service_person: Faker::Internet.email,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
+)
 
-10.times do 
-    Building.create!(
-        fullName_building_administrator: Faker::Name.first_name.delete("\'"),
-        email_building_administrator: Faker::Internet.email,
-        phone_administrator: Faker::PhoneNumber.phone_number_with_country_code,
-        fullName_service_contact: Faker::Name.name.delete("\'"),
-        email_service_contact: Faker::Internet.email,
-        phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
-        # created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # updated_at: Faker::Time.between(6.months.ago, Time.now, :all),
-        address_id: address_id_array.delete(address_id_array.sample),
-        customer_id: customer_id_array.delete(customer_id_array.sample)
+Customer.create(
+    address_id: 6,
+    user_id: 21,
+    creation_date: Faker::Date.in_date_period,
+    business_name: Faker::Company.name.delete("\'"),
+    full_name: Faker::Name.first_name,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    email: Faker::Internet.email,
+    business_desc: Faker::Company.type,
+    fullname_service_person:Faker::Company.name.delete("\'"),
+    phone_service_person: Faker::PhoneNumber.phone_number_with_country_code,
+    email_service_person: Faker::Internet.email,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
+)
 
-    )
+Customer.create(
+    address_id: 7,
+    user_id: 23,
+    creation_date: Faker::Date.in_date_period,
+    business_name: Faker::Company.name.delete("\'"),
+    full_name: Faker::Name.first_name,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    email: Faker::Internet.email,
+    business_desc: Faker::Company.type,
+    fullname_service_person:Faker::Company.name.delete("\'"),
+    phone_service_person: Faker::PhoneNumber.phone_number_with_country_code,
+    email_service_person: Faker::Internet.email,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
+)
 
-end 
+Customer.create(
+    address_id: 8,
+    user_id: 25,
+    creation_date: Faker::Date.in_date_period,
+    business_name: Faker::Company.name.delete("\'"),
+    full_name: Faker::Name.first_name,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    email: Faker::Internet.email,
+    business_desc: Faker::Company.type,
+    fullname_service_person:Faker::Company.name.delete("\'"),
+    phone_service_person: Faker::PhoneNumber.phone_number_with_country_code,
+    email_service_person: Faker::Internet.email,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
+)
 
+Customer.create(
+    address_id: 9,
+    user_id: 26,
+    creation_date: Faker::Date.in_date_period,
+    business_name: Faker::Company.name.delete("\'"),
+    full_name: Faker::Name.first_name,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    email: Faker::Internet.email,
+    business_desc: Faker::Company.type,
+    fullname_service_person:Faker::Company.name.delete("\'"),
+    phone_service_person: Faker::PhoneNumber.phone_number_with_country_code,
+    email_service_person: Faker::Internet.email,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
+)
+
+Customer.create(
+    address_id: 10,
+    user_id: 29,
+    creation_date: Faker::Date.in_date_period,
+    business_name: Faker::Company.name.delete("\'"),
+    full_name: Faker::Name.first_name,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+    email: Faker::Internet.email,
+    business_desc: Faker::Company.type,
+    fullname_service_person:Faker::Company.name.delete("\'"),
+    phone_service_person: Faker::PhoneNumber.phone_number_with_country_code,
+    email_service_person: Faker::Internet.email,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
+)
+
+Building.create(
+    fullName_building_administrator: Faker::Name.first_name.delete("\'"),
+    email_building_administrator: Faker::Internet.email,
+    phone_administrator: Faker::PhoneNumber.phone_number_with_country_code,
+    fullName_service_contact: Faker::Name.name.delete("\'"),
+    email_service_contact: Faker::Internet.email,
+    phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
+    address_id: 1,
+    customer_id: 1
+)
+
+Building.create(
+    fullName_building_administrator: Faker::Name.first_name.delete("\'"),
+    email_building_administrator: Faker::Internet.email,
+    phone_administrator: Faker::PhoneNumber.phone_number_with_country_code,
+    fullName_service_contact: Faker::Name.name.delete("\'"),
+    email_service_contact: Faker::Internet.email,
+    phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
+    address_id: 2,
+    customer_id: 2
+)
+
+Building.create(
+    fullName_building_administrator: Faker::Name.first_name.delete("\'"),
+    email_building_administrator: Faker::Internet.email,
+    phone_administrator: Faker::PhoneNumber.phone_number_with_country_code,
+    fullName_service_contact: Faker::Name.name.delete("\'"),
+    email_service_contact: Faker::Internet.email,
+    phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
+    address_id: 3,
+    customer_id: 3
+)
+
+Building.create(
+    fullName_building_administrator: Faker::Name.first_name.delete("\'"),
+    email_building_administrator: Faker::Internet.email,
+    phone_administrator: Faker::PhoneNumber.phone_number_with_country_code,
+    fullName_service_contact: Faker::Name.name.delete("\'"),
+    email_service_contact: Faker::Internet.email,
+    phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
+    address_id: 4,
+    customer_id: 4
+)
+
+Building.create(
+    fullName_building_administrator: Faker::Name.first_name.delete("\'"),
+    email_building_administrator: Faker::Internet.email,
+    phone_administrator: Faker::PhoneNumber.phone_number_with_country_code,
+    fullName_service_contact: Faker::Name.name.delete("\'"),
+    email_service_contact: Faker::Internet.email,
+    phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
+    address_id: 5,
+    customer_id: 5
+)
+
+Building.create(
+    fullName_building_administrator: Faker::Name.first_name.delete("\'"),
+    email_building_administrator: Faker::Internet.email,
+    phone_administrator: Faker::PhoneNumber.phone_number_with_country_code,
+    fullName_service_contact: Faker::Name.name.delete("\'"),
+    email_service_contact: Faker::Internet.email,
+    phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
+    address_id: 6,
+    customer_id: 6
+)
+
+Building.create(
+    fullName_building_administrator: Faker::Name.first_name.delete("\'"),
+    email_building_administrator: Faker::Internet.email,
+    phone_administrator: Faker::PhoneNumber.phone_number_with_country_code,
+    fullName_service_contact: Faker::Name.name.delete("\'"),
+    email_service_contact: Faker::Internet.email,
+    phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
+    address_id: 7,
+    customer_id: 7
+)
+
+Building.create(
+    fullName_building_administrator: Faker::Name.first_name.delete("\'"),
+    email_building_administrator: Faker::Internet.email,
+    phone_administrator: Faker::PhoneNumber.phone_number_with_country_code,
+    fullName_service_contact: Faker::Name.name.delete("\'"),
+    email_service_contact: Faker::Internet.email,
+    phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
+    address_id: 8,
+    customer_id: 8
+)
+
+Building.create(
+    fullName_building_administrator: Faker::Name.first_name.delete("\'"),
+    email_building_administrator: Faker::Internet.email,
+    phone_administrator: Faker::PhoneNumber.phone_number_with_country_code,
+    fullName_service_contact: Faker::Name.name.delete("\'"),
+    email_service_contact: Faker::Internet.email,
+    phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
+    address_id: 9,
+    customer_id: 9
+)
+
+Building.create(
+    fullName_building_administrator: Faker::Name.first_name.delete("\'"),
+    email_building_administrator: Faker::Internet.email,
+    phone_administrator: Faker::PhoneNumber.phone_number_with_country_code,
+    fullName_service_contact: Faker::Name.name.delete("\'"),
+    email_service_contact: Faker::Internet.email,
+    phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
+    created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+    updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
+    address_id: 10,
+    customer_id: 10
+)
+
+address_id_array = [*11..30]
 customer_id_array = [*1..10]
 
 20.times do     
@@ -187,109 +434,109 @@ customer_id_array = [*1..10]
         fullName_service_contact: Faker::Name.name.delete("\'"),
         email_service_contact: Faker::Internet.email,
         phone_service_contact: Faker::PhoneNumber.phone_number_with_country_code,
-        # created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # updated_at: Faker::Time.between(6.months.ago, Time.now, :all),
+        created_at: Faker::Time.between(from: 3.years.ago, to: 7.months.ago),
+        updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
         address_id: address_id_array.delete(address_id_array.sample),
         customer_id: customer_id_array.sample
     )
 
 end 
 
-building_id_array = [*1..20]
+building_id_array = [*1..30]
 
-20.times do 
+30.times do 
     BuildingDetail.create!(
         information: Faker::Types.rb_string,
         value: Faker::Types.rb_string,
-        # created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # updated_at: Faker::Time.between(6.months.ago, Time.now, :all),
+        created_at: Faker::Time.between(from: 3.years.ago, to: 7.months.ago),
+        updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
         building_id: building_id_array.delete(building_id_array.sample)
     )
 end 
 
-building_id_array = [*1..20]
+building_id_array = [*1..30]
 employee_id_array = [*10..52]
 
-20.times do 
+30.times do 
     Battery.create!(
         type_of_building: type_of_building_array.sample,
         status: status_array.sample,
-        # operational_date: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # last_checkup: Faker::Time.between(1.year.ago, 1.week.ago, :all),
+        operational_date: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
+        last_checkup: Faker::Time.between(from: 1.year.ago, to: 2.weeks.ago),
         certificat: Faker::Code.isbn,
         info: Faker::Types.rb_string,
         notes: Faker::Types.rb_string,
         building_id: building_id_array.delete(building_id_array.sample),
-        employee_id: employee_id_array.delete(employee_id_array.sample)
-        # created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # updated_at: Faker::Time.between(6.months.ago, Time.now, :all)
+        employee_id: employee_id_array.delete(employee_id_array.sample),
+        created_at: Faker::Time.between(from: 3.years.ago, to: 7.months.ago),
+        updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
     )
 end 
 
-battery_id_array =[*1..20]
+battery_id_array =[*1..30]
 
-20.times do 
+30.times do 
     Column.create!(
         type_of_building: type_of_building_array.sample,
-        number_of_floor: Faker::Number.between(from: 2, to: 15),
+        number_of_floor: Faker::Number.between(from: 2, to: 3),
         status: status_array.sample,
         information: Faker::Types.rb_string,
         notes: Faker::Types.rb_string,
-        # created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # updated_at: Faker::Time.between(6.months.ago, Time.now, :all),
+        created_at: Faker::Time.between(from: 3.years.ago, to: 7.months.ago),
+        updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
         battery_id: battery_id_array.delete(battery_id_array.sample)
     )
 end
 
-battery_id_array =[*1..20]
+battery_id_array =[*1..30]
 
 60.times do 
     Column.create!(
         type_of_building: type_of_building_array.sample,
-        number_of_floor: Faker::Number.between(from: 2, to: 15),
+        number_of_floor: Faker::Number.between(from: 2, to: 3),
         status: status_array.sample,
         information: Faker::Types.rb_string,
         notes: Faker::Types.rb_string,
-        # created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # updated_at: Faker::Time.between(6.months.ago, Time.now, :all),
+        created_at: Faker::Time.between(from: 3.years.ago, to: 7.months.ago),
+        updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
         battery_id: battery_id_array.sample
     )
 end
 
-column_id_array =[*1..80]
+column_id_array =[*1..90]
 
-80.times do 
+90.times do 
     Elevator.create!(
         serial_number: Faker::Code.isbn,
         model: type_of_service_array.sample,
         type_of_building: type_of_building_array.sample,
         status: status_array.sample,
-        # activate_date: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # last_checkup: Faker::Time.between(1.year.ago, 1.week.ago, :all),
+        activate_date: Faker::Time.between(from: 3.years.ago, to: 7.months.ago),
+        last_checkup: Faker::Time.between(from: 1.year.ago, to: 1.week.ago),
         inspection_certificat: Faker::Code.isbn,
         information: Faker::Types.rb_string,
         notes: Faker::Types.rb_string,
-        # created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # updated_at: Faker::Time.between(6.months.ago, Time.now, :all),
+        created_at: Faker::Time.between(from: 3.years.ago, to: 7.months.ago),
+        updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
         column_id: column_id_array.delete(column_id_array.sample)
     )
 end
 
 column_id_array =[*1..80]
 
-240.times do 
+147.times do 
     Elevator.create!(
         serial_number: Faker::Code.isbn,
         model: type_of_service_array.sample,
         type_of_building: type_of_building_array.sample,
         status: status_array.sample,
-        # activate_date: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # last_checkup: Faker::Time.between(1.year.ago, 1.week.ago, :all),
+        activate_date: Faker::Time.between(from: 3.years.ago, to: 7.months.ago),
+        last_checkup: Faker::Time.between(from: 1.year.ago, to: 1.week.ago),
         inspection_certificat: Faker::Code.isbn,
         information: Faker::Types.rb_string,
         notes: Faker::Types.rb_string,
-        # created_at: Faker::Time.between(3.years.ago, 7.months.ago, :all),
-        # updated_at: Faker::Time.between(6.months.ago, Time.now, :all),
+        created_at: Faker::Time.between(from: 3.years.ago, to: 7.months.ago),
+        updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now),
         column_id: column_id_array.sample
     )
 end
