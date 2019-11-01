@@ -32,7 +32,7 @@ class PagesController < ApplicationController
     
 
     
-
+      # from geocoder gem github 
     Geocoder.configure(
       timeout: 15,                 # geocoding service timeout (secs)
       lookup: :google,            # name of geocoding service (symbol)
@@ -51,6 +51,9 @@ class PagesController < ApplicationController
 
     options = { units: "metric", APPID: ENV['OPEN_WEATHER_KEY'] }
 
+
+
+    # Google map info 
     for x in Building.all.each do
 
       test = Geocoder.search(Address.find(x.id).street_number)
@@ -86,6 +89,8 @@ class PagesController < ApplicationController
   end
   
 end
+# Used weather stack code from https://weatherstack.com/documentation and the help of windor
+
 def weather(city)
   params = {
     :access_key => ENV['WEATHER_KEY'],

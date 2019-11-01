@@ -12,7 +12,7 @@ after_update :upload_file
     "column"
 end
 
-
+# https://github.com/Jesus/dropbox_api to use dopbox api
 def upload_file
   self.leads.all.each do |lead|
     client = DropboxApi::Client.new(ENV['DROPBOX_OAUTH_BEARER'])

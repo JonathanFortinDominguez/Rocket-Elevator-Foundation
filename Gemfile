@@ -53,6 +53,8 @@ gem 'zendesk_api', '~> 1.20'
 
 gem 'ibm_watson'
 
+gem 'swapi'
+
 gem "figaro"
 
 gem 'dropbox_api'
