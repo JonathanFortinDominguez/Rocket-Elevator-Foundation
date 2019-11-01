@@ -7,10 +7,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: update_attrs
   end
 
-    def after_sign_in_path_for(resource)
-        root_path
-    end
+  def after_sign_in_path_for(resource)
+    path = "/admin" 
+  end
 
-    private 
+
+  private 
 
 end
