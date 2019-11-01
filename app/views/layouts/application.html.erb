@@ -45,8 +45,9 @@
   <!-- TOP NAV -->
   <header id="topNav">
   <!-- Logo -->
-  <a class="logo float-left scrollTo" href="/">
+  <a href="/" class="logo float-left ">
 	<img src="/assets/R2.png" alt="" />
+	
   </a>
 	<div class="container">
 	  <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark ">
@@ -57,14 +58,16 @@
            
             <li>
             <!-- CONTACT -->
+
             <a href="#contact">
+
               CONTACT US
             </a>
           </li>
           
             <li>
               <!-- SERVICES -->
-              <a href="#services">
+              <a href="/#services">
                 SERVICES
               </a>
               <ul class="dropdown-menu">
@@ -140,12 +143,10 @@
 		  </li>
 			<% end %>
 		<% else %>
-		<a href="">
-				 ACCOUNT <i class="fa fa-angle-right"></i>
-			</a>
-			<ul class="dropdown-menu">
+		
+			
 		  <li>
-		  <a href="">
+		  
 				<%= link_to 'SIGN IN', new_user_session_path %>
 		  </a>
 		</li>

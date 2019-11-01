@@ -38,5 +38,6 @@ sendgrid.env
 /config/application.yml
 twilio.env
 
-public\output.wav
-public\swap.wav
+public/output.wav
+public/swap.wav
+
