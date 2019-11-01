@@ -979,8 +979,138 @@
 		<script>
 		var plugin_path = 'assets/plugins/';
 	</script> 
-
+	
 		<!-- /CONTACT -->
-</body>
+								   
+		<br>
+		<br>
+		<br>
+		<h2 class="container">Contact Us </h2>
+		<hr>
+		<form id = "contact" action="/pages" method="post" enctype="multipart/form-data">
+	
+		  
+			<div class="actions">
+			 
+			</div>
+		  
+		<fieldset class="container">
+		
+			<input type="hidden" name="action" value="contact_send" />
+
+			<div class="row">
+				<div class="col-md-4">
+					<label for="contact:name">Full Name *</label>
+					<input required type="text" value="" class="form-control"
+						name="fullnameContact" id="contact:name">
+				</div>
+				<div class="col-md-4">
+					<label for="contact:entName">Entreprise Name *</label>
+					<input required type="text" value="" class="form-control"
+						name="businessNameContact" id="contact:entName">
+				</div>
+				<div class="col-md-4">
+					<label for="contact:email">E-mail Address *</label>
+					<input required type="email" value="" class="form-control"
+						name="emailContact" id="contact:email">
+					
+				</div>
+				<div class="col-md-4">
+					<label for="contact:phone">Phone *</label>
+					<input type="text" value="" class="form-control" name="phoneContact"
+						id="contact:phone">
+				</div>
+				<div class="col-md-8">
+					<label for="contact:projectName">Project Name *</label>
+					<input required type="text" value="" class="form-control"
+						name="projectNameContact" id="contact:subject">
+				</div>
+				<div class="col-md-8">
+						<label for="contact:projectName">Project Description *</label>
+						<input required type="text" value="" class="form-control"
+							name="projectDescContact" id="contact:subject">
+					</div>
+			
+			
+			
+				<div class="col-md-4">
+					<label for="contact_department">Department</label>
+					<input required type="text" value="" class="form-control"
+					name="department" id="contact:subject" required>										
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<label for="contact:message">Message *</label>
+					<textarea required maxlength="10000" rows="8" class="form-control"
+						name="messageContact" id="contact:message"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<label for="contact:attachment">File Attachment</label>
+
+					<!-- custom file upload -->
+					<input class="custom-file-upload" type="file" id="file"
+						name="attachment" id="contact:attachment"
+						data-btn-text="Select a File" />
+					<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+
+				</div>
+			</div>
+
+<br>
+			
+			<div class="row">
+			<div class="col-md-12">
+			<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND
+			MESSAGE</button>
+			
+			</form>
+			</div>
+			<!-- INFO -->
+			<div class="col-md-4 col-sm-4 float-right">
+
+				<h2>Visit Us</h2>
+
+				<!-- 
+					Available heights
+						h-100
+						h-150
+						h-200
+						h-250
+						h-300
+						h-350
+						h-400
+						h-450
+						h-500
+						h-550
+						h-600
+					-->
+
+				<hr />
+
+				<p>
+					<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 725 Boulevard
+						Lebourgneuf, Quebec city, Quebec</span>
+					<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a
+						> <b> 1-800-565-2390 </b> </a></span>
+					<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a
+							> <b> support@rocketelevators.com</b></a></span>
+				</p>
+
+			<!-- /INFO -->
+			</div>
+			
+			</div>
+		
+
+		</div>
+			
+			</fieldset>
+		
+			
+			</section>
+		</body>
 
 </html>
