@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'quotes' => 'quotes#new'
   get 'residentialService' => 'pages#residentialService'
   get 'corporateService' => 'pages#corporateService'
-  
+ 
   root 'pages#index'
 
 end

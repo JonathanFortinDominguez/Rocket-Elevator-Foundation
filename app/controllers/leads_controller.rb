@@ -5,7 +5,7 @@ class LeadsController < ApplicationController
     before_action :set_quote, only: [:show, :edit, :update, :destroy]
     skip_before_action :verify_authenticity_token
     
-    def index
+    def leads
       @leads = Lead.new
     end
     
