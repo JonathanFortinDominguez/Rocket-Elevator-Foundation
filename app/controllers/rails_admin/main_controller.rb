@@ -1,4 +1,10 @@
 module RailsAdmin
+  require "ibm_watson/text_to_speech_v1"
+  require "json"
+  require "ibm_watson/authenticators"
+  require "swapi"
+  require 'net/http'
+
     class MainController < RailsAdmin::ApplicationController
       include ActionView::Helpers::TextHelper
       include RailsAdmin::MainHelper
@@ -24,6 +30,16 @@ module RailsAdmin
           end
         EOS
       end
+
+      
+
+
+
+
+
+
+
+      
   
       def bulk_action
         send(params[:bulk_action]) if params[:bulk_action].in?(RailsAdmin::Config::Actions.all(controller: self, abstract_model: @abstract_model).select(&:bulkable?).collect(&:route_fragment))
