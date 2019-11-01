@@ -1,5 +1,4 @@
 class Customer < ApplicationRecord
-  include RailsAdminCharts
   belongs_to :address
   belongs_to :user
   
@@ -8,9 +7,7 @@ class Customer < ApplicationRecord
 
 after_update :upload_file
   
-  def self.chart_type
-    "column"
-end
+
 
 # https://github.com/Jesus/dropbox_api to use dopbox api
 def upload_file

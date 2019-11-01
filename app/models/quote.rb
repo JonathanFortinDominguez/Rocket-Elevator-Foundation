@@ -1,11 +1,8 @@
 require './lib/tasks/zendesk.rb'
 
 class Quote < ApplicationRecord
-    include RailsAdminCharts
     
-    def self.chart_type
-        "column"
-    end
+
 
     def get_quote
         zendesk = Zendesk.new
