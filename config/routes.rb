@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'quotes' => 'quotes#new'
   get 'residentialService' => 'pages#residentialService'
   get 'corporateService' => 'pages#corporateService'
-  get '/index' => 'pages#index'
+  get '/pages' => 'pages#index'
   root 'pages#index'
-post "/index" => "pages#index"
+post "/pages" => "pages#index"
 end
