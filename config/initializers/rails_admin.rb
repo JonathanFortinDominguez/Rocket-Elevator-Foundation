@@ -38,9 +38,6 @@ RailsAdmin.config do |config|
     show
     edit
     delete
-    show_in_app
-    all # NB: comment out this line for RailsAdmin < 0.6.0
-    charts
 
     ## With an audit adapter, you can add:
     # history_index
