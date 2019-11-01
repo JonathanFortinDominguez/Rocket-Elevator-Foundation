@@ -1,15 +1,12 @@
 require './lib/tasks/zendesk.rb'
 
 class Lead < ApplicationRecord
-    include RailsAdminCharts
     has_one_attached :attachment
     belongs_to :customer, optional: true
     
 
 
-    def self.chart_type
-        "column"
-    end
+
 
     def contact
         zendesk = Zendesk.new

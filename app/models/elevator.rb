@@ -1,12 +1,8 @@
 class Elevator < ApplicationRecord
   require 'twilio-ruby'
-  include RailsAdminCharts
   belongs_to :column
 
   
-  def self.chart_type
-    "column"
-end
 
 after_update :send_message, :sms_status_change
 
