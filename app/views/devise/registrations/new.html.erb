@@ -20,6 +20,7 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
+    <br>
     <%= f.password_field :password, autocomplete: "new-password" , style: 'border-radius: 25px; border: 2px solid black;'%>
   </div>
 
