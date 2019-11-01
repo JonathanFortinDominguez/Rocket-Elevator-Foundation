@@ -77,7 +77,8 @@ include SendGrid
       elsif !@user.admin?
         redirect_to main_app.root_path, :alert => "Need God power to access this page!"
       end
-    
+    #i just wanna change to stage for this file
+
 
     
       # from geocoder gem github 
