@@ -30,7 +30,7 @@
 /config/database.yml
 /config/database_dwh.yml
 
-sendgrid.env
+
 twilio.env
 sendgrid.env
 
@@ -41,3 +41,4 @@ twilio.env
 
 # Ignore application configuration
 /config/application.yml
+sendgrid.env

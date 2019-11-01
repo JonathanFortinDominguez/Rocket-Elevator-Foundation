@@ -129,7 +129,7 @@ def create
 
   
   # https://www.youtube.com/watch?v=Ul3ODrsJyJ0 to help use sendgrid with mailer action
-  #UserNotifierMailer.send_signup_email(@leads).deliver
+  UserNotifierMailer.send_signup_email(@leads).deliver
   @leads.contact
 
   redirect_to root_path
