@@ -38,8 +38,5 @@ sendgrid.env
 /config/application.yml
 twilio.env
 
-
-# Ignore application configuration
-/config/application.yml
-sendgrid.env
-sendgrid.env
+public\output.wav
+public\swap.wav
