@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   require 'net/http'
   require 'json'
+  require 'sendgrid-ruby'
+include SendGrid
   skip_before_action :verify_authenticity_token
   def index
 
@@ -45,8 +47,8 @@ class PagesController < ApplicationController
   
     
     # https://www.youtube.com/watch?v=Ul3ODrsJyJ0 to help use sendgrid with mailer action
-    #UserNotifierMailer.send_signup_email(@leads).deliver
-   # @leads.contact
+    # UserNotifierMailer.send_signup_email(@leads).deliver
+    # @leads.contact
   
     redirect_to root_path
   
