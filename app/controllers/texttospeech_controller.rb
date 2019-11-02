@@ -11,9 +11,7 @@ class TexttospeechController < ApplicationController
     # https://github.com/watson-developer-cloud/ruby-sdk code came from an example from this github
 
     def create
-
-      
-
+    
     # Will print a JSON response with Luke Skywalker information
     # luke = Swapi.get_person 1
 
@@ -57,7 +55,7 @@ class TexttospeechController < ApplicationController
       )
 
       text_to_speech.service_url = "https://gateway-syd.watsonplatform.net/text-to-speech/api"
-
+  
       File::open("public/swap.wav", "wb") do |audio_file|
         response = text_to_speech.synthesize(
           text: swap_data_text,
