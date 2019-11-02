@@ -103,7 +103,7 @@ include SendGrid
 
 
     # Google map info 
-    for x in Building.all.each do
+    Building.all.each do |x|
 
       test = Geocoder.search(Address.find(x.id).street_number)
       @t = test.first.coordinates
@@ -117,16 +117,15 @@ include SendGrid
 
       @number_battery.push(x.batteries.count)
 
-      @number_column.push(x.batteries.columns.count)
+      @number_column.push((Column.where(battery_id: x.battery_ids)).count)
 
-      @number_elevator.push(Elevator.where(column_id: x.batteries).count)
+      @number_elevator.push((Elevator.where(column_id: Column.where(battery_id: x.battery_ids).ids)).count)
     
       @service_name.push(x.customer.fullname_service_person)
 
       @markerList.push(x.id)
 
       @weather.push(temp)
-
 
 
     end
