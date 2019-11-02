@@ -1,6 +1,6 @@
 # README
 
-Week 5
+Week 7
 
 (English version below)
 
