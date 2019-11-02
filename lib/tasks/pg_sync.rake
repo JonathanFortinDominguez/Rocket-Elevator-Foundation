@@ -34,15 +34,15 @@ namespace :dwh do
 
         pg_connection.exec ("TRUNCATE dimcustomers RESTART IDENTITY")
         Customer.all.each do |customer|
-            nbElevator = 1
+            nbElevator = 0
 
-            customer.buildings.each do |building|
+            customer.buildings.all.each do |building|
                
-                building.batteries.each do |battery|
+                building.batteries.all.each do |battery|
                     
-                    battery.columns.each do |column|
+                    battery.columns.all.each do |column|
                       
-                        nbElevator = column.elevators.length
+                        nbElevator += column.elevators.count
                            
                     end
                 end
