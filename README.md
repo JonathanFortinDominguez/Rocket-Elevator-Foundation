@@ -9,10 +9,15 @@ Website : http://www.rocketelevatorsltd.com
 Admin User for testing : nicolas.genest@codeboxx.biz  
 Password: test123
 
-Migrate mysql info to postgresql database with => bundle exec rake dwh:pg_sync
-Seed, migrate, create or drop with => bundle exec rake dwh:db:seed,..
-To test zenddesk api use this link => https://rocketapi.zendesk.com
-To test dropbox api => use given credentials
+-Seed, migrate, create or drop with => bundle exec rake db:drop db:create db:migrate db:seed
+
+-Migrate mysql info to postgresql database with => bundle exec rake dwh:pg_sync
+
+-Seed, migrate, create or drop with => bundle exec rake dwh:db:drop dwh:db:create dwh:db:migrate dwh:db:seed
+
+-To test zenddesk api use this link => https://rocketapi.zendesk.com
+
+-To test dropbox api => use given credentials
 
 
 This week, we worked with 9 APIs.
