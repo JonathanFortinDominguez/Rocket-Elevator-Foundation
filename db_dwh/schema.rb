@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_16_173227) do
+ActiveRecord::Schema.define(version: 2019_11_04_205747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(version: 2019_10_16_173227) do
     t.integer "nbelevator"
     t.string "client_city"
     t.datetime "creation_date"
+  end
+
+  create_table "fact_interventions", force: :cascade do |t|
+    t.integer "employeeid"
+    t.integer "buildingid"
+    t.integer "batteryid"
+    t.integer "columnid"
+    t.integer "elevatorid"
+    t.datetime "intervention_datetime_start"
+    t.datetime "intervention_datetime_end"
+    t.string "result"
+    t.string "report"
+    t.string "status"
   end
 
   create_table "factcontacts", force: :cascade do |t|
@@ -47,10 +60,6 @@ ActiveRecord::Schema.define(version: 2019_10_16_173227) do
     t.string "email"
     t.integer "nbelevator"
     t.datetime "creation_date"
-  end
-
-  create_table "tests", force: :cascade do |t|
-    t.text "test"
   end
 
 end

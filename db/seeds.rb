@@ -52,7 +52,7 @@ User.create(email: 'martin.chantal@codeboxx.biz', password: "test123", employee_
     )
 end
 
-status_array = ["Active", "Active", "Active", "Active", "Active", "Active", "Active", "Active", "Inactive"]
+status_array = ["Active", "Active", "Active", "Active", "Active", "Active", "Active", "Active", "Active", "Active", "Active", "Active", "Active", "Active", "Active", "Inactive", "Intervention", "Intervention"]
 type_of_building_array = ["Residential", "Commercial", "Corporative", "Hybrid"]
 type_of_service_array = ["Standard", "Premium", "Excelium"]
 
