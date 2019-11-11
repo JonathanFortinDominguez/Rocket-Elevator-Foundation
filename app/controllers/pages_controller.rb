@@ -153,4 +153,3 @@ def weather(city)
   weather = api_response['current']['temperature']
   return weather
 end
-

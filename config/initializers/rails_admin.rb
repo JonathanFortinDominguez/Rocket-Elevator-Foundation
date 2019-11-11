@@ -44,7 +44,7 @@ RailsAdmin.config do |config|
     # history_show
 
     config.navigation_static_links = {
-  'Map of all buildings' => 'http://rocketelevatorsltd.com/gmap'
+  'Map of all buildings' => '/gmap'
 }
   end
 end

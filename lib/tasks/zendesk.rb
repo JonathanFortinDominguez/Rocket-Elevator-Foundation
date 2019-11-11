@@ -7,10 +7,10 @@ class Zendesk
         @client = ZendeskAPI::Client.new do |config|
             # Mandatory:
 
-            config.url = "https://rocketapi.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
+            config.url = "https://rocketelevatorsquebec.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
 
             # Basic / Token Authentication
-            config.username = "christo.hardoin@gmail.com"
+            config.username = "jonathanfdominguez@gmail.com"
 
             config.token = ENV['ZENDESK_TOKEN']
         end

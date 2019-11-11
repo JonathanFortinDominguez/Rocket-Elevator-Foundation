@@ -6,6 +6,7 @@ class Employee < ApplicationRecord
   :rememberable
 
   has_many :user
+  has_many :interventions
   
 
 

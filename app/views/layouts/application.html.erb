@@ -116,6 +116,14 @@
               HOME
               </a>
 			</li>
+
+			<li>
+			<% if current_user.try(:admin?) %>
+			<a href="/#clients">
+			INTERVENTION
+			</a>
+			</li>
+			<% end %>
 					
 			<li>
 			<!-- Account -->

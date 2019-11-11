@@ -54,7 +54,7 @@ class TexttospeechController < ApplicationController
         authenticator: authenticator
       )
 
-      text_to_speech.service_url = "https://gateway-syd.watsonplatform.net/text-to-speech/api"
+      text_to_speech.service_url = "https://stream.watsonplatform.net/text-to-speech/api"
   
       File::open("public/swap.wav", "wb") do |audio_file|
         response = text_to_speech.synthesize(

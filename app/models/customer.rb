@@ -1,7 +1,7 @@
 class Customer < ApplicationRecord
   belongs_to :address
   belongs_to :user
-  
+  has_many :interventions
   has_many :leads
   has_many :buildings
 
@@ -16,7 +16,7 @@ def upload_file
     if lead.attachment_file != nil
       
 #  _#{File.extname(lead.original_file_name)}
-      client.upload("/#{lead.businessName}/#{File.basename(lead.original_file_name)}", lead.attachment_file) 
+      client.upload("/#{lead.customer.business_name}/#{File.basename(lead.original_file_name)}", lead.attachment_file) 
 
       lead.attachment_file = nil
       lead.original_file_name = nil
