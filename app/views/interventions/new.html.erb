@@ -1,5 +1,91 @@
-<h1>New Intervention</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<%= render 'form', intervention: @intervention %>
+<head>
 
-<%= link_to 'Back', interventions_path %>
+
+
+
+</head>
+
+<br>
+<div class="container">
+
+</div>
+
+		<div class="form-group col-md-4 container mt-3">
+			<br>
+			<h1 class="m-1 fs-50 fw-300" id="subForm">Submission Form</h1>
+
+			<hr>
+
+			
+			<%= form_for Intervention.new do |f| %>
+			
+			<!-- buildingType-->
+			<label for="buildingType">Choose your Buildinng Type:</label>
+			<select id="buildingType" class="form-control" style="display:block;" onchange="on_change()" name="building_type" required="required">
+				<option value="" >Choose Building Type...</option>
+				<option value="Residential">Residential</option>
+				<option value="Commercial">Commercial</option>
+				<option value="Corporate">Corporate</option>
+				<option value="Hybrid">Hybrid</option>
+			</select>
+		</div>
+
+		<!--total-->
+		<div class="container">
+			<br>
+			<hr noshade="noshade">
+			
+
+			<div class="row">
+			<div class="col-md-12">
+				<label for="contact:phone">Result</label>
+				<input type="text" value="" class="form-control" name="ProjectName"
+					id="contact:phone">
+			</div>
+			<div class="col-md-12">
+				<label for="contact:phone">Report</label>
+				<input type="text" value="" class="form-control" name="emailAddress"
+					id="contact:phone">
+			</div>
+			<div class="col-md-12">
+				<label for="contact:phone">Status</label>
+				<input type="text" value="" class="form-control" name="phoneNumber"
+					id="contact:phone">
+			</div>
+			
+		</div>
+		
+			<br>
+			<button href="" class="btn btn-info btn-lg btn-block" type="submit"> Submit Form</button>
+			</br>
+            <% end %>
+
+	</div>
+	</div>
+	</div>
+
+<br><br><br>
+
+
+<script src="/assets/nodeCalc.js"></script>
+<script>
+		var plugin_path = '/assets/plugins/';
+	</script> 
+
+
+
+	<script src="/assets/scripts.js"></script>
+
+
+
+	<!-- REVOLUTION SLIDER -->
+	<script src="/assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+	<script src="/assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="/assets/view/demo.revolution_slider.js"></script>
+	<!-- PAGELEVEL SCRIPTS -->
+</body>
+
+</html> 

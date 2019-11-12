@@ -1,7 +1,7 @@
 class CreateInterventions < ActiveRecord::Migration[5.2]
   def change
     create_table :interventions do |t|
-      t.integer :author, null: false
+      t.bigint :author, default: 0
       t.references :customer, foreign_key: true, null: false
       t.references :building, foreign_key: true, null: false
       t.references :battery, foreign_key: true, null: true
@@ -11,7 +11,7 @@ class CreateInterventions < ActiveRecord::Migration[5.2]
       t.datetime :intervention_datetime_start, null: true
       t.datetime :intervention_datetime_end, null: true
       t.string :result, default: 'Incomplete'
-      t.text :report, null: false
+      t.text :report
       t.string :status , default: 'Pending'
       t.timestamps
     end

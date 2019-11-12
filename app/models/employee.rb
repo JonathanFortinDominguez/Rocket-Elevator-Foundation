@@ -7,6 +7,10 @@ class Employee < ApplicationRecord
 
   has_many :user
   has_many :interventions
+
+  def name
+    "#{self.id} #{self.lastname}"
+  end
   
 
 

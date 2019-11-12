@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_180620) do
   end
 
   create_table "interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "author", null: false
+    t.bigint "author", default: 0
     t.bigint "customer_id", null: false
     t.bigint "building_id", null: false
     t.bigint "battery_id"
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_180620) do
     t.datetime "intervention_datetime_start"
     t.datetime "intervention_datetime_end"
     t.string "result", default: "Incomplete"
-    t.text "report", null: false
+    t.text "report"
     t.string "status", default: "Pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
