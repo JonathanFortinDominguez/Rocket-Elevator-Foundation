@@ -4,5 +4,12 @@ class Battery < ApplicationRecord
   has_many :columns
   has_many :interventions
   
+  
+  def battery_id
+    "Battery # #{id}"
+  end
+  
+  
+
 
 end

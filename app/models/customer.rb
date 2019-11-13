@@ -1,7 +1,7 @@
 class Customer < ApplicationRecord
   belongs_to :address
   belongs_to :user
-  has_many :interventions
+  has_many :interventions, dependent: :restrict_with_exception
   has_many :leads
   has_many :buildings
 
@@ -27,4 +27,8 @@ def upload_file
     end
   end
 end
+end
+
+def customer_info
+  "# #{id}. #{business_name} owned by #{full_name}"
 end

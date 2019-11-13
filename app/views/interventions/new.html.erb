@@ -13,24 +13,31 @@
 
 </div>
 
-		<div class="form-group col-md-4 container mt-3">
+		<div class="form-group col-md-4 container mt-3" align="center">
 			<br>
-			<h1 class="m-1 fs-50 fw-300" id="subForm">Submission Form</h1>
+			<h1 class="m-1 fs-50 fw-300" id="subForm">Intervention Form</h1>
 
 			<hr>
 
 			
-			<%= form_for Intervention.new do |f| %>
+			<%= form_for @intervention do |f| %>
 			
 			<!-- buildingType-->
-			<label for="buildingType">Choose your Buildinng Type:</label>
-			<select id="buildingType" class="form-control" style="display:block;" onchange="on_change()" name="building_type" required="required">
-				<option value="" >Choose Building Type...</option>
-				<option value="Residential">Residential</option>
-				<option value="Commercial">Commercial</option>
-				<option value="Corporate">Corporate</option>
-				<option value="Hybrid">Hybrid</option>
-			</select>
+		<div class="row" align="center">
+			<div class="col-md-12">
+			<%= f.label :customer %><br/>
+			<%= f.collection_select(:customer_id, Customer.order(:id), :id, :customer_info, prompt: true) %>
+			<%= f.label :building_id %><br/>
+			<%= f.grouped_collection_select :building_id, Customer.order(:id), :buildings, :id, :id, :company_building, :prompt => true %>
+			<%= f.label :battery_id %><br/>
+			<%= f.grouped_collection_select(:battery_id, Building.order(:id), :batteries, :id, :id, :battery_id, prompt: true) %>
+			<%= f.label :column_id %><br/>
+			<%= f.grouped_collection_select(:column_id, Battery.order(:id), :columns, :id, :id, :column_id, prompt: true) %>
+			<%= f.label :elevator_id %><br/>
+			<%= f.grouped_collection_select(:elevator_id, Column.order(:id), :elevators, :id, :id, :elevator_id, prompt: true) %>
+			<%= f.label :employee_id %><br/>
+			<%= f.collection_select(:employee_id, Employee.order(:id), :id, :employee_id, prompt: true) %>
+			</div>	
 		</div>
 
 		<!--total-->
@@ -39,16 +46,16 @@
 			<hr noshade="noshade">
 			
 
-			<div class="row">
+			<div class="row" align="left">
 			<div class="col-md-12">
 				<label for="contact:phone">Result</label>
 				<input type="text" value="" class="form-control" name="ProjectName"
 					id="contact:phone">
 			</div>
 			<div class="col-md-12">
-				<label for="contact:phone">Report</label>
-				<input type="text" value="" class="form-control" name="emailAddress"
-					id="contact:phone">
+					<label for="contact:message">Report</label>
+					<textarea required maxlength="5" rows="3" class="form-control"
+				name="messageContact" id="contact:message"></textarea>
 			</div>
 			<div class="col-md-12">
 				<label for="contact:phone">Status</label>
@@ -70,13 +77,13 @@
 <br><br><br>
 
 
-<script src="/assets/nodeCalc.js"></script>
+
 <script>
 		var plugin_path = '/assets/plugins/';
 	</script> 
 
 
-
+	<script src="/assets/interventions.js.coffee"></script>
 	<script src="/assets/scripts.js"></script>
 
 
