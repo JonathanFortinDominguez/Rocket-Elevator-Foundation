@@ -26,17 +26,17 @@
 		<div class="row" align="center">
 			<div class="col-md-12">
 			<%= f.label :customer %><br/>
-			<%= f.collection_select(:customer_id, Customer.order(:id), :id, :customer_info, prompt: true) %>
+			<%= f.collection_select(:customer_id, Customer.order(:id), :id, :customer_info, prompt: 'Select Customer') %>
 			<%= f.label :building_id %><br/>
-			<%= f.grouped_collection_select :building_id, Customer.order(:id), :buildings, :id, :id, :company_building, :prompt => true %>
+			<%= f.grouped_collection_select :building_id, Customer.order(:id), :buildings, :id, :id, :company_building, prompt: 'Select Building' %>
 			<%= f.label :battery_id %><br/>
-			<%= f.grouped_collection_select(:battery_id, Building.order(:id), :batteries, :id, :id, :battery_id, prompt: true) %>
+			<%= f.grouped_collection_select(:battery_id, Building.order(:id), :batteries, :id, :id, :battery_id, prompt: 'Select Battery') %>
 			<%= f.label :column_id %><br/>
-			<%= f.grouped_collection_select(:column_id, Battery.order(:id), :columns, :id, :id, :column_id, prompt: true) %>
+			<%= f.grouped_collection_select(:column_id, Battery.order(:id), :columns, :id, :id, :column_id, prompt: 'Select Column') %>
 			<%= f.label :elevator_id %><br/>
-			<%= f.grouped_collection_select(:elevator_id, Column.order(:id), :elevators, :id, :id, :elevator_id, prompt: true) %>
+			<%= f.grouped_collection_select(:elevator_id, Column.order(:id), :elevators, :id, :id, :elevator_id, prompt: 'Select Elevator') %>
 			<%= f.label :employee_id %><br/>
-			<%= f.collection_select(:employee_id, Employee.order(:id), :id, :employee_id, prompt: true) %>
+			<%= f.collection_select(:employee_id, Employee.order(:id), :id, :employee_id, prompt: 'Select Employee') %>
 			</div>	
 		</div>
 
@@ -82,9 +82,9 @@
 		var plugin_path = '/assets/plugins/';
 	</script> 
 
-
-	<script src="/assets/interventions.js.coffee"></script>
 	<script src="/assets/scripts.js"></script>
+	<script src="/assets/interventions.js.coffee"></script>
+
 
 
 
