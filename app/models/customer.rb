@@ -28,3 +28,9 @@ def upload_file
   end
 end
 end
+
+def customer_info
+  "#{id}. #{business_name} owned by #{full_name}"
+end
+
+

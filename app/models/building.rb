@@ -4,6 +4,9 @@ class Building < ApplicationRecord
   has_many :interventions
   has_many :batteries
 
+  def company_building
+    "Building #{id} at #{address.street_number}"
+  end
   
 
 

@@ -3,7 +3,9 @@ class Elevator < ApplicationRecord
   belongs_to :column
   has_many :interventions
 
-  
+  def elevator_info
+    "Elevator # #{id}"
+  end
 
 after_update :send_message, :sms_status_change
 

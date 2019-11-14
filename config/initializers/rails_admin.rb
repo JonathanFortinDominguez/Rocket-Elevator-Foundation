@@ -26,7 +26,7 @@ RailsAdmin.config do |config|
 
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
-  # config.show_gravatar = true
+  #config.show_gravatar = true
 
 
   config.actions do
@@ -38,13 +38,16 @@ RailsAdmin.config do |config|
     show
     edit
     delete
+    all
 
     ## With an audit adapter, you can add:
     # history_index
     # history_show
 
     config.navigation_static_links = {
-  'Map of all buildings' => '/gmap'
+  'Map of all buildings' => '/gmap',
+  'Intervention form' => '/interventions/new'
 }
   end
 end
+
