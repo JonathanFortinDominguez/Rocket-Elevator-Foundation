@@ -1,7 +1,7 @@
 class Customer < ApplicationRecord
   belongs_to :address
   belongs_to :user
-  has_many :interventions, dependent: :restrict_with_exception
+  has_many :interventions
   has_many :leads
   has_many :buildings
 

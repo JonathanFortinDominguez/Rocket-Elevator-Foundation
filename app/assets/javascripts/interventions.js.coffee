@@ -9,7 +9,8 @@ jQuery ->
         $("#column_select").hide()
         $("#elevator_select").hide()
         customer = $('#intervention_customer_id :selected').text()
-        options_customer = $(buildings).filter("optgroup[label='#{customer}']").prepend('<option value="">Select Building:</option>').html()
+        options_customer = $(buildings).filter("optgroup[label='#{customer}']").prepend('<option value="">Select Building</option>').html()
+        console.log(options_customer)
         if options_customer
             $('#intervention_building_id').html(options_customer)
             $("#building_select").show()
@@ -24,6 +25,7 @@ jQuery ->
         $("#elevator_select").hide()
         building = $('#intervention_building_id :selected').text()
         options_building = $(batteries).filter("optgroup[label='#{building}']").prepend('<option value="">None chosen</option>').html()
+        console.log(options_building)
         if options_building
             $('#intervention_battery_id').html(options_building)
             $("#battery_select").show()
