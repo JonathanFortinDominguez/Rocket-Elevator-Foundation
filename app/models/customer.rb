@@ -30,5 +30,7 @@ end
 end
 
 def customer_info
-  "#{id}"
+  "#{id}. #{business_name} owned by #{full_name}"
 end
+
+

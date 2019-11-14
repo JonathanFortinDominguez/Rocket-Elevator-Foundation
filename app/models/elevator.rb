@@ -3,7 +3,7 @@ class Elevator < ApplicationRecord
   belongs_to :column
   has_many :interventions
 
-  def elevator_id
+  def elevator_info
     "Elevator # #{id}"
   end
 

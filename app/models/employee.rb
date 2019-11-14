@@ -8,10 +8,12 @@ class Employee < ApplicationRecord
   has_many :user
   has_many :interventions
 
-  def employee_id
-    "# #{self.id} #{self.name} #{self.lastname}"
+  def employee_info
+    "##{self.id} #{self.lastname}"
   end
   
-
+  def name
+    "##{self.id} #{self.lastname}"
+  end
 
 end

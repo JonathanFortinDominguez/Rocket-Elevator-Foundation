@@ -2,8 +2,8 @@ class CreateInterventions < ActiveRecord::Migration[5.2]
   def change
     create_table :interventions do |t|
       t.bigint :author, default: 0
-      t.references :customer, foreign_key: true, null: false
-      t.references :building, foreign_key: true, null: false
+      t.references :customer, foreign_key: true, null: true
+      t.references :building, foreign_key: true, null: true
       t.references :battery, foreign_key: true, null: true
       t.references :column, foreign_key: true, null: true
       t.references :elevator, foreign_key: true, null: true

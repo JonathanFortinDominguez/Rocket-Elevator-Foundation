@@ -4,7 +4,7 @@ class Column < ApplicationRecord
   has_many :interventions
 
     
-  def column_id
+  def column_info
     "Column # #{id}"
   end
 

@@ -24,19 +24,29 @@
 			
 			<!-- buildingType-->
 		<div class="row" align="center">
-			<div class="col-md-12">
-			<%= f.label :customer %><br/>
-			<%= f.collection_select(:customer_id, Customer.order(:id), :id, :customer_info, prompt: 'Select Customer') %>
-			<%= f.label :building_id %><br/>
-			<%= f.grouped_collection_select :building_id, Customer.order(:id), :buildings, :id, :id, :company_building, prompt: 'Select Building' %>
-			<%= f.label :battery_id %><br/>
-			<%= f.grouped_collection_select(:battery_id, Building.order(:id), :batteries, :id, :id, :battery_id, prompt: 'Select Battery') %>
-			<%= f.label :column_id %><br/>
-			<%= f.grouped_collection_select(:column_id, Battery.order(:id), :columns, :id, :id, :column_id, prompt: 'Select Column') %>
-			<%= f.label :elevator_id %><br/>
-			<%= f.grouped_collection_select(:elevator_id, Column.order(:id), :elevators, :id, :id, :elevator_id, prompt: 'Select Elevator') %>
-			<%= f.label :employee_id %><br/>
-			<%= f.collection_select(:employee_id, Employee.order(:id), :id, :employee_id, prompt: 'Select Employee') %>
+			<div class="col-md-12" name = "customer_selected">
+			<%= f.label :company_and_owner %>
+			<%= f.collection_select(:customer_id, Customer.order(:id), :id, :customer_info, prompt: 'Select Customer').to_i %>
+			</div>
+			<div class="col-md-12" style = "display: none;" id = "building_select" name = 'building_selected'>
+			<%= f.label :building_id_and_address %>
+			<%= f.grouped_collection_select :building_id, Customer.order(:id), :buildings, :customer_info, :id, :company_building, prompt: 'Select Building:' %>
+			</div>
+			<div class="col-md-12" style = "display: none;" id = "battery_select" name = 'battery_selected'>
+			<%= f.label :battery_id%>
+			<%= f.grouped_collection_select(:battery_id, Building.order(:id), :batteries, :company_building, :id, :battery_info, prompt: 'Select Battery:') %>
+			</div>
+			<div class="col-md-12" style = "display: none;" id = "column_select" name = 'column_selected'>
+			<%= f.label :column_id %>
+			<%= f.grouped_collection_select(:column_id, Battery.order(:id), :columns, :battery_info, :id, :column_info, prompt: 'Select Column:') %>
+			</div>
+			<div class="col-md-12" style = "display: none;" id = "elevator_select" name = 'elevator_selected'>
+			<%= f.label :elevator_id %>
+			<%= f.grouped_collection_select(:elevator_id, Column.order(:id), :elevators, :column_info, :id, :elevator_info, prompt: 'Select Elevator:') %>
+			</div>
+			<div class="col-md-12" name = 'employee_selected'>
+			<%= f.label :chosen_employee %>
+			<%= f.collection_select(:employee_id, Employee.order(:id), :id, :employee_info, prompt: 'Select Employee:') %>
 			</div>	
 		</div>
 
@@ -49,17 +59,17 @@
 			<div class="row" align="left">
 			<div class="col-md-12">
 				<label for="contact:phone">Result</label>
-				<input type="text" value="" class="form-control" name="ProjectName"
+				<input type="text" value="" class="form-control" name="result_intervention"
 					id="contact:phone">
 			</div>
 			<div class="col-md-12">
 					<label for="contact:message">Report</label>
 					<textarea required maxlength="5" rows="3" class="form-control"
-				name="messageContact" id="contact:message"></textarea>
+				name="report_intervention" id="contact:message"></textarea>
 			</div>
 			<div class="col-md-12">
 				<label for="contact:phone">Status</label>
-				<input type="text" value="" class="form-control" name="phoneNumber"
+				<input type="text" value="" class="form-control" name="status_intervention"
 					id="contact:phone">
 			</div>
 			
