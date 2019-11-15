@@ -26,7 +26,7 @@ Employee.create(lastname: 'Chantal', name: 'Martin', function: 'Engineer', email
         lastname: Faker::Name.last_name.delete("\'"),
         function: Faker::Construction.role,     
         email: Faker::Internet.email,
-        password: '123456',
+        encrypted_password: '123456',
         created_at: Faker::Time.between(from: 4.years.ago, to: 7.months.ago),
         updated_at: Faker::Time.between(from: 6.months.ago,to: Time.now)
     )
@@ -128,7 +128,7 @@ Address.create(address_type: type_of_building_array.sample, status: status_array
 Address.create(address_type: type_of_building_array.sample, status: status_array.sample, entity: "Operational Building", street_number: "85 Belgrade Rd", apt_number: "", city: "Manchester", zip_code: "04351", country: "United-States", notes: Faker::Types.rb_string)
 Address.create(address_type: type_of_building_array.sample, status: status_array.sample, entity: "Operational Building", street_number: "6139 Tweed St NE", apt_number: "", city: "Calgary", zip_code: "T2K3W9 ", country: "Canada", notes: Faker::Types.rb_string)
 Address.create(address_type: type_of_building_array.sample, status: status_array.sample, entity: "Operational Building", street_number: "70 Cedardale Cres SW", apt_number: "", city: "Calgary", zip_code: "T2W3Z5", country: "Canada", notes: Faker::Types.rb_string)
-Address.create(address_type: type_of_building_array.sample, status: status_array.sample, entity: "Operational Building", street_number: "2867 18th Ave E", apt_number: "", city: "Vancouver", zip_code: "V5M2R1", country: "Canada", notes: Faker::Types.rb_string)
+Address.create(address_type: type_of_building_array.sample, status: status_array.sample, entity: "Operational Building", street_number: "146 Route du President-Kennedy", apt_number: "", city: "Quebec", zip_code: "G6V6C9", country: "Canada", notes: Faker::Types.rb_string)
 Address.create(address_type: type_of_building_array.sample, status: status_array.sample, entity: "Operational Building", street_number: "1784 rue des herbes sauvages", apt_number: "", city: "Quebec", zip_code: "G3J0E6", country: "Canada", notes: Faker::Types.rb_string)
 Address.create(address_type: type_of_building_array.sample, status: status_array.sample, entity: "Operational Building", street_number: "19 Kowall Bay", apt_number: "", city: "Winnipeg", zip_code: "R2P1A7", country: "Canada", notes: Faker::Types.rb_string)
 
