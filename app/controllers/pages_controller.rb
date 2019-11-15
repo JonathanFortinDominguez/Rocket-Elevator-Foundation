@@ -104,8 +104,9 @@ include SendGrid
 
     # Google map info 
     Building.all.each do |x|
-
+      p "test"
       test = Geocoder.search(Address.find(x.id).street_number)
+    
       @t = test.first.coordinates
 
       temp = weather(x.address.city)
