@@ -7,7 +7,7 @@ class Intervention < ApplicationRecord
     belongs_to :battery, optional: true
     belongs_to :column, optional: true
     belongs_to :elevator, optional: true
-    belongs_to :employee, class_name: "Employee"
+    belongs_to :employee, class_name: "Employee", optional: true
 
     def get_intervention_battery
         zendesk = Zendesk.new
