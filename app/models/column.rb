@@ -5,7 +5,7 @@ class Column < ApplicationRecord
 
     
   def column_info
-    "Column # #{id}"
+    "Column ##{id}"
   end
 
 end
