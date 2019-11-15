@@ -31,11 +31,11 @@
 			</div>   
 			<div class="col-md-12">
 			<%= f.label :company_and_owner %>
-			<%= f.collection_select(:customer_id, Customer.order(:id), :id, :customer_info, prompt: 'Select Customer')%>
+			<%= f.collection_select(:customer_id, Customer.order(:id), :id, :customer_info, {prompt: 'Select Customer'}, {:required => true} )%>
 			</div>
 			<div class="col-md-12" style = "display: none;" id = "building_select">
 			<%= f.label :building_id_and_address %>
-			<%= f.grouped_collection_select :building_id, Customer.order(:id), :buildings, :customer_info, :id, :company_building, prompt: 'Select Building:' %>
+			<%= f.grouped_collection_select :building_id, Customer.order(:id), :buildings, :customer_info, :id, :company_building, {prompt: 'Select Building:'}, {:required => true}%>
 			</div>
 			<div class="col-md-12" style = "display: none;" id = "battery_select">
 			<%= f.label :battery_id%>
@@ -51,7 +51,7 @@
 			</div>
 			<div class="col-md-12">
 			<%= f.label :chosen_employee %>
-			<%= f.collection_select(:employee_id, Employee.order(:id), :id, :employee_info, prompt: 'Select Employee:') %>
+			<%= f.collection_select(:employee_id, Employee.order(:id), :id, :employee_info, {prompt: 'Select Employee:'}, {:required => true}) %>
 			</div>	
 		</div>
 

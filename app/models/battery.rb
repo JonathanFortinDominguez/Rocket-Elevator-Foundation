@@ -6,7 +6,7 @@ class Battery < ApplicationRecord
   
   
   def battery_info
-    "Battery # #{id}"
+    "Battery ##{id}"
   end
   
   

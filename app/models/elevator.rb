@@ -4,7 +4,7 @@ class Elevator < ApplicationRecord
   has_many :interventions
 
   def elevator_info
-    "Elevator # #{id}"
+    "Elevator ##{id}"
   end
 
 after_update :send_message, :sms_status_change

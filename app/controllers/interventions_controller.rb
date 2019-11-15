@@ -25,32 +25,26 @@ class InterventionsController < ApplicationController
 	# POST /interventions.json
   def create
 
-	interventioninfo = params['intervention']
-	
-	authorid = params['author_select']
-	customerid = interventioninfo['customer_id']
-	buildingid = interventioninfo['building_id']
-	batteryid = interventioninfo['battery_id']
-	columnid = interventioninfo['column_id']
-	elevatorid = interventioninfo['elevator_id']
-	employeeid = interventioninfo['employee_id']
-    resultinfo = params['result_intervention']
-    reportinfo = params['report_intervention']
-    statusinfo = params['status_intervention']
-
-
 	@intervention = Intervention.new
 
-	@intervention.author_id = authorid
-	@intervention.customer_id = customerid
-	@intervention.building_id = buildingid
-	@intervention.battery_id = batteryid if columnid == ""
-	@intervention.column_id = columnid if elevatorid == ""
-	@intervention.elevator_id = elevatorid
-	@intervention.employee_id = employeeid
-	@intervention.report = reportinfo
+	@intervention.author_id = params['author_select']
+	@intervention.customer_id = params['intervention']['customer_id']
+	@intervention.building_id = params['intervention']['building_id']
+	@intervention.battery_id = params['intervention']['battery_id'] if params['intervention']['column_id'] == ""
+	@intervention.column_id = params['intervention']['column_id'] if params['intervention']['elevator_id'] == ""
+	@intervention.elevator_id = params['intervention']['elevator_id']
+	@intervention.employee_id = params['intervention']['employee_id']
+	@intervention.report = params['report_intervention']
 
-    @intervention.save!
+	@intervention.save!
+	
+    if params['intervention']['column_id'] == ""
+		@intervention.get_intervention_battery
+	elsif params['intervention']['elevator_id'] == ""
+		@intervention.get_intervention_column
+	else 
+		@intervention.get_intervention_elevator
+	end
 
 		redirect_to root_path
 
