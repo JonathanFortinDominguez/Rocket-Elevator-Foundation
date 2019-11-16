@@ -10,8 +10,9 @@ class InterventionsController < ApplicationController
 	# GET /interventions/1
 	# GET /interventions/1.json
 	def show
+		@user = current_user
+		redirect_to root_path, warning: "You are not authorized" unless @user.admin?
 	end
-
 	# GET /interventions/new
 	def new
 		@intervention = Intervention.new
@@ -24,6 +25,8 @@ class InterventionsController < ApplicationController
 	# POST /interventions
 	# POST /interventions.json
   def create
+	@user = current_user
+	redirect_to root_path, warning: "You are not authorized" unless @user.admin?
 
 	@intervention = Intervention.new
 
@@ -39,16 +42,98 @@ class InterventionsController < ApplicationController
 	@intervention.save!
 	
     if params['intervention']['column_id'] == ""
-		@intervention.get_intervention_battery
+		get_intervention_battery(@intervention)
 	elsif params['intervention']['elevator_id'] == ""
-		@intervention.get_intervention_column
+		get_intervention_column(@intervention)
 	else 
-		@intervention.get_intervention_elevator
+		get_intervention_elevator(@intervention)
 	end
 
 		redirect_to root_path
 
 	end
+
+	def get_intervention_battery(intervention)
+
+		author_name = intervention.author.name
+		business_name = intervention.customer.business_name
+		building_nb = intervention.building.id
+		admin_fullname = intervention.building.fullName_building_administrator
+		address_number = intervention.building.address.street_number
+		address_city = intervention.building.address.city
+		battery_nb = intervention.battery.id
+		employee_name = intervention.employee.name
+		report_info = intervention.report
+
+	zendesk = Zendesk.new
+
+	zendesk.get_an_intervention_battery(
+		author_name, 
+		business_name, 
+		building_nb, 
+		admin_fullname,
+		address_number, 
+		address_city, 
+		battery_nb, 
+		employee_name, 
+		report_info) 
+end 
+
+def get_intervention_column(intervention)
+	
+	author_name = intervention.author.name
+	business_name = intervention.customer.business_name
+	building_nb = intervention.building.id
+	admin_fullname = intervention.building.fullName_building_administrator
+	address_number = intervention.building.address.street_number
+	address_city = intervention.building.address.city
+	column_nb = intervention.column.id
+	employee_name = intervention.employee.name
+	report_info = intervention.report
+
+	zendesk = Zendesk.new
+
+	zendesk.get_an_intervention_column(
+		author_name, 
+		business_name, 
+		building_nb, 
+		admin_fullname,
+		address_number, 
+		address_city, 
+		column_nb, 
+		employee_name, 
+		report_info) 
+end 
+
+def get_intervention_elevator(intervention)
+	
+	author_name = intervention.author.name
+	business_name = intervention.customer.business_name
+	building_nb = intervention.building.id
+	admin_fullname = intervention.building.fullName_building_administrator
+	address_number = intervention.building.address.street_number
+	address_city = intervention.building.address.city
+	elevator_nb = intervention.elevator.id
+	employee_name = intervention.employee.name
+	report_info = intervention.report
+
+	zendesk = Zendesk.new
+
+	zendesk.get_an_intervention_elevator(
+		author_name, 
+		business_name, 
+		building_nb, 
+		admin_fullname,
+		address_number, 
+		address_city, 
+		elevator_nb, 
+		employee_name, 
+		report_info) 
+end
+
+
+
+
 
 	# PATCH/PUT /interventions/1
 	# PATCH/PUT /interventions/1.json
