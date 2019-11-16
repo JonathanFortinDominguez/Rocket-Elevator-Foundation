@@ -36,7 +36,7 @@
 			</div>
 			<div class="col-md-12" style = "display: none;" id = "battery_select">
 			<%= f.label :battery_id%>
-			<%= f.grouped_collection_select(:battery_id, Building.order(:id), :batteries, :company_building, :id, :battery_info, prompt: 'Select Battery:') %>
+			<%= f.grouped_collection_select(:battery_id, Building.order(:id), :batteries, :company_building, :id, :battery_info, {prompt: 'Select Battery:'}, {:required => true}) %>
 			</div>
 			<div class="col-md-12" style = "display: none;" id = "column_select">
 			<%= f.label :column_id %>
@@ -48,7 +48,7 @@
 			</div>
 			<div class="col-md-12">
 			<%= f.label :chosen_employee %>
-			<%= f.collection_select(:employee_id, Employee.order(:id), :id, :employee_info, {prompt: 'Select Employee:'}, {:required => true}) %>
+			<%= f.collection_select(:employee_id, Employee.order(:id), :id, :employee_info, {prompt: 'Select Employee:'}) %>
 			</div>	
 		</div>
 
