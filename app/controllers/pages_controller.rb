@@ -71,12 +71,8 @@ include SendGrid
 
     
     
-      @user = current_user
-      if @user.nil?
-        redirect_to main_app.root_path, :alert => "Need God power to access this page!"
-      elsif !@user.admin?
-        redirect_to main_app.root_path, :alert => "Need God power to access this page!"
-      end
+    @user = current_user
+		redirect_to root_path, warning: "You are not authorized" unless @user.try(:admin?)
     #i just wanna change to stage for this file
 
 

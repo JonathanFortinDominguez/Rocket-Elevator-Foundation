@@ -10,11 +10,12 @@ class InterventionsController < ApplicationController
 	# GET /interventions/1
 	# GET /interventions/1.json
 	def show
-		@user = current_user
-		redirect_to root_path, warning: "You are not authorized" unless @user.admin?
+		
 	end
 	# GET /interventions/new
 	def new
+		@user = current_user
+		redirect_to root_path, warning: "You are not authorized" unless @user.try(:admin?)
 		@intervention = Intervention.new
 	end
 
@@ -24,9 +25,7 @@ class InterventionsController < ApplicationController
 
 	# POST /interventions
 	# POST /interventions.json
-  def create
-	@user = current_user
-	redirect_to root_path, warning: "You are not authorized" unless @user.admin?
+ 	def create
 
 	@intervention = Intervention.new
 
