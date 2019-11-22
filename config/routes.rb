@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   resources :quotes
 
   devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-    get '/users/sign_up' => 'devise/sessions#new'
   end
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

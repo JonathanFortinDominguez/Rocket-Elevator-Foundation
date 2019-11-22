@@ -41,3 +41,4 @@ twilio.env
 /public/output.wav
 /public/swap.wav
 
+coverage
