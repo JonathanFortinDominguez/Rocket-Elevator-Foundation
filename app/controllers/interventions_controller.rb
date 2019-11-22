@@ -10,11 +10,12 @@ class InterventionsController < ApplicationController
 	# GET /interventions/1
 	# GET /interventions/1.json
 	def show
-		@user = current_user
-		redirect_to root_path, warning: "You are not authorized" unless @user.admin?
+		
 	end
 	# GET /interventions/new
 	def new
+		@user = current_user
+		redirect_to root_path, warning: "You are not authorized" unless @user.try(:admin?)
 		@intervention = Intervention.new
 	end
 
@@ -24,9 +25,7 @@ class InterventionsController < ApplicationController
 
 	# POST /interventions
 	# POST /interventions.json
-  def create
-	@user = current_user
-	redirect_to root_path, warning: "You are not authorized" unless @user.admin?
+ 	def create
 
 	@intervention = Intervention.new
 
@@ -62,7 +61,7 @@ class InterventionsController < ApplicationController
 		address_number = intervention.building.address.street_number
 		address_city = intervention.building.address.city
 		battery_nb = intervention.battery.id
-		employee_name = intervention.employee.name
+		employee_name = intervention.employee.lastname
 		report_info = intervention.report
 
 	zendesk = Zendesk.new
@@ -88,7 +87,7 @@ def get_intervention_column(intervention)
 	address_number = intervention.building.address.street_number
 	address_city = intervention.building.address.city
 	column_nb = intervention.column.id
-	employee_name = intervention.employee.name
+	employee_name = intervention.employee.lastname
 	report_info = intervention.report
 
 	zendesk = Zendesk.new
@@ -114,7 +113,7 @@ def get_intervention_elevator(intervention)
 	address_number = intervention.building.address.street_number
 	address_city = intervention.building.address.city
 	elevator_nb = intervention.elevator.id
-	employee_name = intervention.employee.name
+	employee_name = intervention.employee.lastname
 	report_info = intervention.report
 
 	zendesk = Zendesk.new
