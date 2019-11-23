@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'elevator_media/streamer'
 require 'rest-client'
 require 'open_weather'
@@ -12,8 +11,17 @@ module ElevatorMedia
         end
 
         def getNeededBroadcast(api)
+
+            # The test worked this way, but I couldn't render it on the index that way
+
+            # if api == 'dog_image'
+            #     return "<div class='media_streamer'><img src=#{JSON.parse(self.getRandomDogPicture)['url']}></div>"
+            # end
+
+            # Took out "<div class='media_streamer'><img src=" and "></div> so I could render the image on the index.
+            
             if api == 'dog_image'
-                return "<div class='media_streamer'><img src=#{JSON.parse(self.getRandomDogPicture)['url']}</div>"
+                return "#{JSON.parse(self.getRandomDogPicture)['url']}"
             end
 
             if api == 'current_weather'
