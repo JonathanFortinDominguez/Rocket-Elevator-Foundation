@@ -1,4 +1,20 @@
-# README
+Week 10 TDD
+
+The code for the module is in the /lib/elevator_media/streamer.rb file.
+
+The ElevatorMedia module was developped with the Red-Green-Refactoring method and the TDD with Rspec. Inside the module, there is a standard method called "getContent" that returns HTML content. The preferred content here was cute and funny dog pictures. 
+
+You can also get weather info and authenticate on Spotify and find users with getContent. Simplecov was integrated to the TDD.
+
+The files where the TDD was accomplished are located here : /lib/elevator_media/streamer.rb and /spec/lib/elevator_media/streamer_spec.rb 
+
+-"validates returning html" test checks if getContent returned valid html information.
+
+-the 'verifies if we got a spotify response' confirmes we get a response from the spotify API through rspotify gem.
+
+-the 'was able to get a forecasted weather response from API' test confirmed we got a response from the OpenWeather API through the gem
+
+There is a bit of redundancy, but all the 14 tests work and Simplecov shows 100% in it's coverage.
 
 Week 9
 
