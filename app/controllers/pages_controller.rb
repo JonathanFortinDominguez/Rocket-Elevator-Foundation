@@ -2,11 +2,15 @@ class PagesController < ApplicationController
   require 'net/http'
   require 'json'
   require 'sendgrid-ruby'
+  require 'elevator_media/streamer'
+  
 include SendGrid
   skip_before_action :verify_authenticity_token
   def index
-
-@leads = Lead.new
+    content_type = params[:content_type]
+    streamer = ElevatorMedia::Streamer.new
+    @dog_image = streamer.getContent("dog_image")
+    @leads = Lead.new
   end 
   def create 
       
