@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  <title>Rocket Elevators</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/assets/re-icon.png" />
-  <meta name="description" content="" />
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+	<head>
+	<title>Rocket Elevators</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/re-icon.png" />
+	<meta name="description" content="" />
+		<%= csrf_meta_tags %>
+		<%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application" %>
+		<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application" %>
 
-		<!-- mobile settings -->
+	<!-- mobile settings -->
 	<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 	<link href="/assets/lightgrey.css" rel="stylesheet" type="text/css" id="color_scheme" /> 
 
-  <!-- WEB FONTS : use %7C instead of | (pipe) -->
-  
-  
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+
+
 	<link
 		href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700"
 		rel="stylesheet" type="text/css" />
@@ -34,89 +34,88 @@
 	<link href="/assets/layout.css" rel="stylesheet" type="text/css" />
 
 	<!-- PAGE LEVEL SCRIPTS -->
-    </head>
+		</head>
 
-  <body smoothscroll enable-animation>
+		<body smoothscroll enable-animation>
 
 
-  
-  <div id="header" class="navbar-toggleable-md sticky header-md clearfix dark">
 
-  <!-- TOP NAV -->
-  <header id="topNav">
-   
+		<div id="header" class="navbar-toggleable-md sticky header-md clearfix dark">
 
-   <!-- Mobile Menu Button -->
-					<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
-						<i class="fa fa-bars"></i>
-					</button>
+		<!-- TOP NAV -->
+		<header id="topNav">
 
-  <!-- Logo -->
-  <a href="/" class="logo float-left ">
+
+			<!-- Mobile Menu Button -->
+				<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+					<i class="fa fa-bars"></i>
+				</button>
+
+		<!-- Logo -->
+		<a href="/" class="logo float-left ">
 	<img src="/assets/R2.png" alt="" />
-	
-  </a>
-  <div class="container">
-	  <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark ">
 
-        <nav class="nav-main">
+		</a>
+		<div class="container">
+			<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark ">
 
-          <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
-           
-            <li>
-            <!-- CONTACT -->
+				<nav class="nav-main">
 
-            <a href="/#contact">
+					<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
 
-              CONTACT US
-            </a>
-          </li>
-          
-            <li>
-              <!-- SERVICES -->
-              <a href="/#services">
-                SERVICES
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="/residentialService"> Residential Services</a>
-                </li>
-                <li>
-                  <a href="/corporateService"> Corporate Services</a>
-                </li>
-                <li>
-                  <a href="/quotes/new">Get a Quotes</a>
-                
-                </li>
-              </ul>
-            </li>
-            <li>
-              <!-- WORK -->
-              <a href="/#portfolio">
+						<li>
+						<!-- CONTACT -->
 
-                 PORTFOLIO
-              </a>
-            </li>
-            <li>
-              <!-- NEWS -->
-              <a href="/#news">
-                NEWS
-              </a>
-            </li>
-            <li>
-              <!-- CLIENTS -->
-              <a href="/#clients">
-                CLIENTS
-              </a>
-            </li>
-          
-            <li>
-              <!-- HOME -->
-              <a href="/">
-              HOME
-              </a>
+						<a href="/#contact">
+
+							CONTACT US
+						</a>
+					</li>
+
+						<li>
+							<!-- SERVICES -->
+							<a href="/#services">
+								SERVICES
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="/residentialService"> Residential Services</a>
+								</li>
+								<li>
+									<a href="/corporateService"> Corporate Services</a>
+								</li>
+								<li>
+									<a href="/quotes/new">Get a Quotes</a>
+
+								</li>
+							</ul>
+						</li>
+						<li>
+							<!-- WORK -->
+							<a href="/#portfolio">
+
+								PORTFOLIO
+							</a>
+						</li>
+						<li>
+							<!-- NEWS -->
+							<a href="/#news">
+								NEWS
+							</a>
+						</li>
+						<li>
+							<!-- CLIENTS -->
+							<a href="/#clients">
+								CLIENTS
+							</a>
+						</li>
+
+						<li>
+							<!-- HOME -->
+							<a href="/">
+							HOME
+							</a>
 			</li>
-
 			<li>
 			<% if current_user.try(:admin?) %>
 			<a href="/interventions/new">
@@ -124,63 +123,68 @@
 			</a>
 			</li>
 			<% end %>
-					
+
 			<li>
 			<!-- Account -->
 
-			
-			
+
+
 		<% if current_user %>
 		<a href="">
-			Logged in as:	<%= current_user.email %>
+			Logged in as: <%= current_user.email %>
 			</a>
 			<ul class="dropdown-menu">
 			<li>
 			<a href="">
-				  <%= link_to 'SIGN OUT', destroy_user_session_path, method: :delete %>
+				<%= link_to 'SIGN OUT', destroy_user_session_path, method: :delete %>
 			</a>
-		  </li>
-		  <li>
+				</li>
+				<li>
 			<a href="/users/edit">
 				Change your password
 			</a>
-		  </li>
+				</li>
 			<% if current_user.admin == true %>
 			<li>
 			<a href="/gmap">
 				Building Map 
 			</a>
-		  </li>
-		  <li>
+				</li>
+					<li>
+				<a href="/machine_learning">
+					Speech Recognition
+				</a>
+			</li>
+				<li>
 			<a href="/admin">
 				Dashboard 
 			</a>
-		  </li>
+				</li>
 			<% end %>
 		<% else %>
-		
-			
-		  <li>
-		  
-				<%= link_to 'SIGN IN', new_user_session_path %>
-		  </a>
+
+
+			<li>
+
+			<%= link_to 'SIGN IN', new_user_session_path %>
+			</a>
 		</li>
 
 			<% end %>
 			</ul>
-		  </li>
+				</li>
 
 
 
-			
-		
-          </ul>
 
-        </nav>
-      </div>
 
-    </div>
-  </header>
+					</ul>
+
+					</nav>
+					</div>
+
+				</div>
+		</header>
 
 
 </div>
@@ -190,7 +194,7 @@
 
 
 
-    
+
 		<!-- FOOTER -->
 		<footer id="footer">
 			<div class="container">
@@ -272,10 +276,10 @@
 		</div>
 	</div><!-- /PRELOADER -->
 
-  
+
 	<!-- JAVASCRIPT FILES -->
 
-	
+
 
 
 	<script src="/assets/scripts.js"></script>
@@ -287,7 +291,7 @@
 	<script src="/assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
 	<script src="/assets/view/demo.revolution_slider.js"></script>
 	<!-- PAGELEVEL SCRIPTS -->
- 	<script src="/assets/contact.js"></script>
-	 
-  </body>
+		<script src="/assets/contact.js"></script>
+
+		</body>
 </html>
