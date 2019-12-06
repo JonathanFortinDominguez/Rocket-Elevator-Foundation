@@ -2,13 +2,6 @@
 	redirect_to root_page
 <% end %>
 <html lang="en">
- <br>
-
-		<div class="form-group col-md-4 container mt-3" align="center">
-			<br>
-			<h1 class="m-1 fs-50 fw-300" id="subForm">Speech Recognition and Speech-to-text</h1>
-    </div>
-			<hr>
   <body>
   <head>
     <meta charset="utf-8">
@@ -34,14 +27,21 @@
 
     <form action="/recognize" method='post'>
       <div id="tabs-1" align="center">
+      <div class="form-group col-md-4 container mt-3" align="center">
+			<br>
+			<h1 class="m-1 fs-50 fw-300" id="subForm">Speech Recognition Profile Creation</h1>
+    </div>
+			<hr>
+      <br>
       <div class= "askStyle">
         <label class= "labelStyle">Profile</label>
-        <select required name= "language" class= "ansStyle">
+        <br>
+        <select required name= "language" class= "col-md-8">
             <option value="">----SELECT LANGUAGE----</option>
             <option value="french">French</option>
             <option value="english">English</option>
-        </select><br>
-        <input class= "ansStyle" placeholder= "Name" name="Name"/><br>
+        </select><br><br><br>
+        <input class= "col-md-8" placeholder= "Name" name="Name"/><br>
       </div>
       <br>
       <button class="btn btn-red btn-lg" style="margin-top: 15px;" type="submit">CREATE</button>
@@ -50,20 +50,25 @@
 
     <form action="/enroll" method="post" enctype= "multipart/form-data">
       <div id="tabs-2" align="center">
-
+      <div class="form-group col-md-4 container mt-3" align="center">
+			<br>
+			<h1 class="m-1 fs-50 fw-300" id="subForm">Speech Recognition and Speech-to-text</h1>
+    </div>
+			<hr>
+      <br>
         <div class= "chooseType">
-            <label class= "labelStyle">Type oF Profile</label>
+            <label class= "labelStyle">Profile</label>
 
-            <select required name= "profile" class= "ansStyle">
+            <select required name= "profile" class= "col-md-8">
                 <option value="">----SELECT PROFILE ----</option>
                 <% Profile.all.each do |profile| %>
                   <option value=<%= profile.speech_id %>><%= profile.name %>, <%= profile.speech_id %></option>
                 <% end %>
-            </select>
+            </select><br><br>
         </div>
         <br>
     
-        <div class="col-md-12">
+        <div class="col-md-8">
           <label for="contact:attachment">File Attachment</label>
 
           <!-- custom file upload -->
@@ -79,14 +84,20 @@
 
 <form action="/delete" method='post'>
       <div id="tabs-3" align="center">
+      <div class="form-group col-md-4 container mt-3" align="center">
+			<br>
+			<h1 class="m-1 fs-50 fw-300" id="subForm">Speech Recognition and Speech-to-text</h1>
+    </div>
+			<hr>
+      <br>
       <div class= "askStyle">
         <label class= "labelStyle">Profile</label>
-        <select required name= "profile" class= "ansStyle">
+        <select required name= "profile" class= "col-md-8">
             <option value="">----SELECT PROFILE----</option>
             <% Profile.all.each do |profile| %>
                 <option value=<%= profile.speech_id %>><%= profile.name %>, <%= profile.speech_id %></option>
             <% end %>
-        </select>
+        </select><br><br>
       </div>
       <br>
       <button class="btn btn-red btn-lg" style="margin-top: 15px;" type="submit">DELETE</button>
@@ -95,16 +106,21 @@
 
     <form action="/transcribe" method="post" enctype= "multipart/form-data">
       <div id="tabs-4" align="center">
-
+      <div class="form-group col-md-4 container mt-3" align="center">
+			<br>
+			<h1 class="m-1 fs-50 fw-300" id="subForm">Speech Recognition and Speech-to-text</h1>
+    </div>
+			<hr>
+      <br>
         <div class= "chooseType">
             <label class= "labelStyle">Recognize profile</label>
 
-            <select required name= "theprofile" class= "ansStyle">
+            <select required name= "theprofile" class= "col-md-8">
                 <option value="">----SELECT PROFILE ----</option>
                 <% Profile.all.each do |profile| %>
                   <option value=<%= profile.speech_id %>><%= profile.name %>, <%= profile.speech_id %></option>
                 <% end %>
-            </select>
+            </select><br><br>
         </div>
         <br>
     
@@ -120,9 +136,6 @@
         <button class="btn btn-red btn-lg" style="margin-top: 15px;" type='submit'>SEND</button>
       </div>
     </form>
-
-
-   
   </div>
   </body>
   </html>

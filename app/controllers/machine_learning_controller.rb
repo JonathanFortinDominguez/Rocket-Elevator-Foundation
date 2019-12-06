@@ -66,7 +66,6 @@ class MachineLearningController < ApplicationController
 
         @profile.destroy
 
-        # redirect_to delete_profile_path(deletedProfileLanguage: @profile.language, deletedProfileSpeech: @profile.speech_id, deletedProfileName: @profile.name)
     end
 
     def enroll
@@ -90,7 +89,6 @@ class MachineLearningController < ApplicationController
             http.request(request)
         end
 
-        sleep 10
         opertionUrl = response.header['operation-location']
 
         uri = URI(opertionUrl)
@@ -107,15 +105,12 @@ class MachineLearningController < ApplicationController
 
         result = JSON.parse(response.body)
 
-        p result
 
         if result['status'] == "succeeded"
             @profile.enrolled = true
             @profile.save!
         end
 
-
-        # redirect_to confirm_enroll_path(profile_name: @profile.name, operationnal_status: result['status'], enrollement_status: result['processingResult']['enrollmentStatus'])
     end
 
     def recognize
@@ -137,9 +132,6 @@ class MachineLearningController < ApplicationController
             http.request(request)
         end
 
-        puts response.header['operation-location']
-
-        sleep 10
         opertionUrl = response.header['operation-location']
 
         uri = URI(opertionUrl)
@@ -165,7 +157,7 @@ class MachineLearningController < ApplicationController
         # Request headers
         request['Content-Type'] = 'audio/vnd.wave'
         # Request headers
-        request['Ocp-Apim-Subscription-Key'] = ENV["AZURE_SPEECH"]
+        request['Ocp-Apim-Subscription-Key'] = "2c7952cd710e4c34a3ac9e629ed950ef"
         # Request body
         request.body = File.read(@audio.path)
 
@@ -178,7 +170,6 @@ class MachineLearningController < ApplicationController
         uri = URI('https://rocketspeakerrecognition.cognitiveservices.azure.com/spid/v1.0/identify?identificationProfileIds='+profileId)
 
 
-        # redirect_to identified_profile_path(operationnal_status: result['status'], identifiedId: result['processingResult']['identifiedProfileId'], identifiedName: identifiedProfile.name, identifiedLanguage: identifiedProfile.language, confidence: result['processingResult']['confidence'], text: result2['DisplayText'])
     end
 
 end

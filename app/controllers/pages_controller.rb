@@ -155,22 +155,6 @@ def weather(city)
   return weather
 end
 
-def confirm_enroll
-  # @enroll_name = params[:profile_name]
-  # @operationnal_status = params[:operationnal_status]
-  # @enrollement_status = params[:enrollement_status]
-end
-
-def delete_profile
-end
-
-def identified_profile
-  @resultArray = params[:resultArray]
-  @identifiedProfileArray = params[:identifiedProfileArray]
-  @profileToidentifyArray = params[:profileToidentifyArray]
-  @text = params[:text]
-end
-
 def confirm_profile
 end
 
