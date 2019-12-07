@@ -1,5 +1,17 @@
 # README
 
+Week 12: MACHINE LEARNING
+
+Rocketelevatorworldwide.com
+Username: nicolas.genest@codeboxx.biz.
+Password: 123456.
+
+You can create profiles, enroll them, delete them and recognize them with added speech-to-text.
+
+All of this is done through the Speech recognition page in the admin dropdown.
+
+All other necessary info was added or sent to the coaches privately.
+
 Week 9
 
 Website : Rocketelevatorworldwide.com <br>
