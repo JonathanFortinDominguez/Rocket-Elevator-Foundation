@@ -15,8 +15,8 @@ class MachineLearningController < ApplicationController
                 "locale":"en-us"
             }.to_json
         end
-
-        uri = URI('https://rocketspeakerrecognition.cognitiveservices.azure.com/spid/v1.0/identificationProfiles')
+		
+        uri = URI(ENV["AZURE_URL"])
         uri.query = URI.encode_www_form({
         })
 
@@ -24,7 +24,7 @@ class MachineLearningController < ApplicationController
         # Request headers
         request['Content-Type'] = 'application/json'
         # Request headers
-        request['Ocp-Apim-Subscription-Key'] = "2c7952cd710e4c34a3ac9e629ed950ef"
+        request['Ocp-Apim-Subscription-Key'] = ENV["AZURE_SPEAKER"]
         # Request body
         request.body = local_body
 
@@ -52,13 +52,13 @@ class MachineLearningController < ApplicationController
 
 		@profile = Profile.where(profile_id: profileId).take
 
-		uri = URI("https://rocketspeakerrecognition.cognitiveservices.azure.com/spid/v1.0/identificationProfiles/"+ profileId)
+		uri = URI(ENV["AZURE_URL]"+ profileId)
 		uri.query = URI.encode_www_form({
 		})
 
 		request = Net::HTTP::Delete.new(uri.request_uri)
 		# Request headers
-		request['Ocp-Apim-Subscription-Key'] = "2c7952cd710e4c34a3ac9e629ed950ef"
+		request['Ocp-Apim-Subscription-Key'] = ENV["AZURE_SPEAKER"]
 
 		response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
 			http.request(request)
@@ -76,13 +76,13 @@ class MachineLearningController < ApplicationController
 
 		@profile = Profile.where(profile_id: profile).take
 
-		uri = URI('https://rocketspeakerrecognition.cognitiveservices.azure.com/spid/v1.0/identificationProfiles/' + profile + '/enroll')
+		uri = URI(ENV["AZURE_URL"] + profile + '/enroll')
 
 		request = Net::HTTP::Post.new(uri.request_uri)
 		# Request headers
 		request['Content-Type'] = 'audio/vnd.wave'
 		# Request headers
-		request['Ocp-Apim-Subscription-Key'] = "2c7952cd710e4c34a3ac9e629ed950ef"
+		request['Ocp-Apim-Subscription-Key'] = ENV["AZURE_SPEAKER"]
 		# Request body
 		request.body = File.read(@audio.path)
 
@@ -100,7 +100,7 @@ class MachineLearningController < ApplicationController
 
 		request = Net::HTTP::Get.new(uri.request_uri)
 		# Request headers
-		request['Ocp-Apim-Subscription-Key'] = "2c7952cd710e4c34a3ac9e629ed950ef"
+		request['Ocp-Apim-Subscription-Key'] = ENV["AZURE_SPEAKER"]
 
 		response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
 			http.request(request)
@@ -126,13 +126,13 @@ class MachineLearningController < ApplicationController
 		profileId = params["enrolled_profile"].to_str
         profileToidentify = Profile.where(profile_id: profileId).take
 
-        uri = URI('https://rocketspeakerrecognition.cognitiveservices.azure.com/spid/v1.0/identify?identificationProfileIds=' + profileId)
+        uri = URI(ENV["AZURE_URL2"] + profileId)
 
         request = Net::HTTP::Post.new(uri.request_uri)
         # Request headers
         request['Content-Type'] = 'audio/vnd.wave'
         # Request headers
-        request['Ocp-Apim-Subscription-Key'] = "2c7952cd710e4c34a3ac9e629ed950ef"
+        request['Ocp-Apim-Subscription-Key'] = ENV["AZURE_SPEAKER"]
         # Request body
         request.body = File.read(@audio.path)
         
@@ -150,7 +150,7 @@ class MachineLearningController < ApplicationController
         sleep 15
 		request = Net::HTTP::Get.new(uri.request_uri)
 		# Request headers
-		request['Ocp-Apim-Subscription-Key'] = "2c7952cd710e4c34a3ac9e629ed950ef"
+		request['Ocp-Apim-Subscription-Key'] = ENV["AZURE_SPEAKER"]
 
 		response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
 			http.request(request)
@@ -162,13 +162,13 @@ class MachineLearningController < ApplicationController
 		identifiedProfile = Profile.where(profile_id: result['processingResult']['identifiedProfileId']).take
 
 
-		uri = URI('https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US')
+		uri = URI(ENV["AZURE_URL2"])
 		
 		request = Net::HTTP::Post.new(uri.request_uri)
         # Request headers
         request['Content-Type'] = 'audio/vnd.wave'
         # Request headers
-        request['Ocp-Apim-Subscription-Key'] = '148eceabb7bc48ababded387b3d20c10'
+        request['Ocp-Apim-Subscription-Key'] = ENV["AZURE_SPEECH"]
         # Request body
         request.body = File.read(@audio.path)
 
