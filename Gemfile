@@ -41,6 +41,8 @@ gem 'rails_admin_rollincode', '~> 1.0'
 gem 'rails_admin'
 gem "cancan"
 
+gem 'rspotify'
+
 gem 'sendgrid-ruby'
 
 gem 'twilio-ruby', '~> 5.28.0'
@@ -56,6 +58,8 @@ gem 'ibm_watson'
 gem 'swapi'
 
 gem "figaro"
+
+gem 'rest-client'
 
 gem 'dropbox_api'
 
@@ -84,6 +88,7 @@ gem 'capistrano3-puma'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -102,6 +107,8 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
+  gem 'simplecov', require: false
+  gem 'html_validation'
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome

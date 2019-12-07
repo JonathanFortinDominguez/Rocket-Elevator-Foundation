@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
-
-  resources :interventions
-  resources :leads
-  resources :quotes
-
   devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-    get '/users/sign_up' => 'devise/sessions#new'
   end
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -19,7 +12,22 @@ Rails.application.routes.draw do
   get 'corporateService' => 'pages#corporateService'
   root 'pages#index'
 
+  get '/machine_learning', to: 'pages#machine_learning'
+  get '/confirm_profile', to: 'pages#confirm_profile'
+  get '/delete_profile', to: 'pages#delete_profile'
+  get '/confirm_enroll', to: 'pages#confirm_enroll'
+  get '/identified_profile', to: 'pages#identified_profile'
+  
+  post '/recognize' => 'machine_learning#createProfile'
+  post '/delete', to: 'machine_learning#deleteProfile'
+  post '/enroll', to: 'machine_learning#enroll'
+  post '/transcribe', to: 'machine_learning#recognize'
+  
+
+
   resources :pages
+  resources :interventions
+  resources :leads
   resources :quotes
 
 end

@@ -2,11 +2,15 @@ class PagesController < ApplicationController
   require 'net/http'
   require 'json'
   require 'sendgrid-ruby'
+  require 'elevator_media/streamer'
+  
 include SendGrid
   skip_before_action :verify_authenticity_token
   def index
-
-@leads = Lead.new
+    content_type = params[:content_type]
+    streamer = ElevatorMedia::Streamer.new
+    @dog_image = streamer.getContent("dog_image")
+    @leads = Lead.new
   end 
   def create 
       
@@ -149,4 +153,29 @@ def weather(city)
   api_response = JSON.parse(json)
   weather = api_response['current']['temperature']
   return weather
+end
+
+def confirm_enroll
+  @enrlName = params[:profilName]
+  @operationStatus = params[:operationStatus]
+  @enrollementStatus = params[:enrollementStatus]
+end
+
+def delete_profile
+  @language = params[:deletedProfileLanguage]
+  @name = params[:deletedProfileName]
+  @speech_id = params[:deletedProfileSpeech]
+end
+
+def identified_profile
+  @resultArray = params[:resultArray]
+  @identifiedProfileArray = params[:identifiedProfileArray]
+  @profileToidentifyArray = params[:profileToidentifyArray]
+  @text = params[:text]
+end
+
+def confirm_profile
+end
+
+def machine_learning
 end
