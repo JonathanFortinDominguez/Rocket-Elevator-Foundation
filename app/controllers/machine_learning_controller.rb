@@ -35,7 +35,7 @@ class MachineLearningController < ApplicationController
         jsonResponse = JSON.parse(response.body)
 
         @profile.name = params['Name']
-        @profile.speech_id = jsonResponse['identificationProfileId']
+        @profile.profile_id = jsonResponse['identificationProfileId']
         @profile.enrolled = false
         @profile.language = language
 
@@ -50,7 +50,7 @@ class MachineLearningController < ApplicationController
 	def deleteProfile
 		profileId = params['profile'].to_str
 
-		@profile = Profile.where(speech_id: profileId).take
+		@profile = Profile.where(profile_id: profileId).take
 
 		uri = URI("https://rocketspeakerrecognition.cognitiveservices.azure.com/spid/v1.0/identificationProfiles/"+ profileId)
 		uri.query = URI.encode_www_form({
@@ -66,7 +66,7 @@ class MachineLearningController < ApplicationController
 
 		@profile.destroy
 
-		redirect_to delete_profile_path(deletedProfileLanguage: @profile.language, deletedProfileSpeech: @profile.speech_id, deletedProfileName: @profile.name)
+		redirect_to delete_profile_path(deletedProfileLanguage: @profile.language, deletedProfileSpeech: @profile.profile_id, deletedProfileName: @profile.name)
 	end
 
 	def enroll
@@ -74,7 +74,7 @@ class MachineLearningController < ApplicationController
 
 		profile = params['profile'].to_str
 
-		@profile = Profile.where(speech_id: profile).take
+		@profile = Profile.where(profile_id: profile).take
 
 		uri = URI('https://rocketspeakerrecognition.cognitiveservices.azure.com/spid/v1.0/identificationProfiles/' + profile + '/enroll')
 
@@ -96,6 +96,8 @@ class MachineLearningController < ApplicationController
 		uri.query = URI.encode_www_form({
 		})
 
+		sleep 20
+
 		request = Net::HTTP::Get.new(uri.request_uri)
 		# Request headers
 		request['Ocp-Apim-Subscription-Key'] = "2c7952cd710e4c34a3ac9e629ed950ef"
@@ -103,6 +105,8 @@ class MachineLearningController < ApplicationController
 		response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
 			http.request(request)
 		end
+
+		sleep 15
 
 		result = JSON.parse(response.body)
 
@@ -116,10 +120,11 @@ class MachineLearningController < ApplicationController
 
 	end
 
-    def recognize
-        @audio = params['Audio']
-		profileId = params["theprofile"].to_str
-        profileToidentify = Profile.where(speech_id: profileId).take
+	def recognize
+		
+        @audio = params['recognize_audio']
+		profileId = params["enrolled_profile"].to_str
+        profileToidentify = Profile.where(profile_id: profileId).take
 
         uri = URI('https://rocketspeakerrecognition.cognitiveservices.azure.com/spid/v1.0/identify?identificationProfileIds=' + profileId)
 
@@ -134,7 +139,7 @@ class MachineLearningController < ApplicationController
         response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
             http.request(request)
 		end
-
+		sleep 15
 		operationUrl = response.header['Operation-Location']
 
         p "======================================="
@@ -142,7 +147,7 @@ class MachineLearningController < ApplicationController
 		uri = URI(operationUrl)
 		uri.query = URI.encode_www_form({
 		})
-        sleep 30
+        sleep 15
 		request = Net::HTTP::Get.new(uri.request_uri)
 		# Request headers
 		request['Ocp-Apim-Subscription-Key'] = "2c7952cd710e4c34a3ac9e629ed950ef"
@@ -154,11 +159,11 @@ class MachineLearningController < ApplicationController
 		result = JSON.parse(response.body)
         p "ffffffffffffffffffffffff"
         p result.to_json
-		identifiedProfile = Profile.where(speech_id: result['processingResult']['identifiedProfileId']).take
+		identifiedProfile = Profile.where(profile_id: result['processingResult']['identifiedProfileId']).take
 
 
 		uri = URI('https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US')
-
+		
 		request = Net::HTTP::Post.new(uri.request_uri)
         # Request headers
         request['Content-Type'] = 'audio/vnd.wave'
@@ -170,9 +175,10 @@ class MachineLearningController < ApplicationController
         response2 = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
             http.request(request)
 		end
-
+		sleep 10
+		
 		result2 = JSON.parse(response2.body)
-		redirect_to identified_profile_path(resultArray: result2, identifiedProfileArray: identifiedProfile, text: result2['DisplayText'], profileToidentifyArray: profileToidentify)
+		redirect_to identified_profile_path(identifiedId: identifiedProfile, operationStatus: result['status'], confidence: result['confidence'], text: result2['DisplayText'])
 
 end
 end

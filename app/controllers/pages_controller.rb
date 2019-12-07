@@ -156,7 +156,7 @@ def weather(city)
 end
 
 def confirm_enroll
-  @enrlName = params[:profilName]
+  @enrollement_name = params[:profilName]
   @operationStatus = params[:operationStatus]
   @enrollementStatus = params[:enrollementStatus]
 end
@@ -164,13 +164,13 @@ end
 def delete_profile
   @language = params[:deletedProfileLanguage]
   @name = params[:deletedProfileName]
-  @speech_id = params[:deletedProfileSpeech]
+  @profile_id = params[:deletedProfileSpeech]
 end
 
 def identified_profile
-  @resultArray = params[:resultArray]
-  @identifiedProfileArray = params[:identifiedProfileArray]
-  @profileToidentifyArray = params[:profileToidentifyArray]
+  @operationnal_status = params[:operationStatus]
+  @identifiedId = params[:identifiedId]
+  @confidence = params[:confidence]
   @text = params[:text]
 end
 

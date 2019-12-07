@@ -1,4 +1,19 @@
-<label>You have created a new profile</label>
-<label>Name : <%= Profile.last.name %></label>
-<label>Speech ID : <%= Profile.last.speech_id %></label>
-<label>language : <%= Profile.last.language %></label>
+<!DOCTYPE html>
+<html lang="en">
+<br>
+<div class="container" align="center">
+<div class="form-group col-md-4 container mt-3">
+<br>
+<h1 class="m-1 fs-50 fw-300" id="subForm">You have created a new profile</h1>
+<hr>
+<br>
+<label><strong>Name :</strong> <%= Profile.last.name %></label>
+<br>
+<label><strong>Speech ID :</strong> <%= Profile.last.profile_id %></label>
+<br>
+<label><strong>language :</strong> <%= Profile.last.language %></label>
+<br>
+<br>
+<br>
+</div>
+</div>

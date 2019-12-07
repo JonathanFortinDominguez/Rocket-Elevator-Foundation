@@ -193,7 +193,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_201908) do
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "language"
-    t.string "speech_id"
+    t.string "profile_id"
     t.string "name"
     t.boolean "enrolled"
     t.datetime "created_at", null: false

@@ -18,12 +18,10 @@ Rails.application.routes.draw do
   get '/confirm_enroll', to: 'pages#confirm_enroll'
   get '/identified_profile', to: 'pages#identified_profile'
   
-  post '/recognize' => 'machine_learning#createProfile'
+  post '/createprofile' => 'machine_learning#createProfile'
   post '/delete', to: 'machine_learning#deleteProfile'
   post '/enroll', to: 'machine_learning#enroll'
-  post '/transcribe', to: 'machine_learning#recognize'
-  
-
+  post '/recognize', to: 'machine_learning#recognize'
 
   resources :pages
   resources :interventions
