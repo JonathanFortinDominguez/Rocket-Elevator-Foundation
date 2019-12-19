@@ -246,6 +246,7 @@ GEM
       net-ssh (>= 2.6.5, < 6.0.0)
     net-ssh (5.2.0)
     netrc (0.11.0)
+    newrelic_rpm (6.7.0.359)
     nio4r (2.5.2)
     nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
@@ -478,6 +479,7 @@ DEPENDENCIES
   magnific-popup-rails
   mixitup-rails (~> 3.3, >= 3.3.1)
   mysql2 (>= 0.4.4, < 0.6.0)
+  newrelic_rpm
   open-weather
   owlcarousel-rails
   pg (~> 1.1, >= 1.1.4)

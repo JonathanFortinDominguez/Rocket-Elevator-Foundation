@@ -57,6 +57,8 @@ gem 'ibm_watson'
 
 gem 'swapi'
 
+gem 'newrelic_rpm'
+
 gem "figaro"
 
 gem 'rest-client'

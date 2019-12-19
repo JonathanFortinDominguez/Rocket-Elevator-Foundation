@@ -8,7 +8,7 @@ namespace :dwh do
     desc "export to postgresql"
     task db_sync: :environment do
 
-        pg_connection = PG::Connection.open(host: "codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com", port: 5432, dbname: "JonathanFortin", user: "codeboxx", password: "Codeboxx1!")
+        pg_connection = PG::Connection.open(host: "ls-b5297c8d2cb2e5f8b6ffc37f8f8ff84f9da3f348.cgmzpzzecsvu.us-east-1.rds.amazonaws.com", port: 5432, dbname: "Database-2", user: "dbmasteruser", password: "Letmein1290!")
 
     
         pg_connection.exec ("TRUNCATE factquotes RESTART IDENTITY")
