@@ -52,7 +52,7 @@ class MachineLearningController < ApplicationController
 
 		@profile = Profile.where(profile_id: profileId).take
 
-		uri = URI(ENV["AZURE_URL]"+ profileId)
+		uri = URI(ENV["AZURE_URL"]+ profileId)
 		uri.query = URI.encode_www_form({
 		})
 

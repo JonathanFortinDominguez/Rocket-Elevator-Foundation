@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server "34.203.94.126", user: "ubuntu", roles: %w{app db web}
+server "52.23.179.235", user: "ubuntu", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 app = ENV['APP']
@@ -25,9 +25,9 @@ set :linked_files, %w{config/database.yml config/database_dwh.yml config/applica
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{ubuntu@34.203.94.126}
-role :web, %w{ubuntu@34.203.94.126}
-role :db,  %w{ubuntu@34.203.94.126}
+role :app, %w{ubuntu@52.23.179.235}
+role :web, %w{ubuntu@52.23.179.235}
+role :db,  %w{ubuntu@52.23.179.235}
 
 
 
@@ -49,11 +49,10 @@ role :db,  %w{ubuntu@34.203.94.126}
 #
 # Global options
 # --------------
-#  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
+ set :ssh_options, {
+   keys: %w(/home/jonathan/Jonathan.pem),
+   forward_agent: false
+ }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
