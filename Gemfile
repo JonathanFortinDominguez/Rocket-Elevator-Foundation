@@ -59,10 +59,6 @@ gem 'swapi'
 
 gem 'newrelic_rpm'
 
-gem 'syslogger', '~> 1.6.0'
-
-gem 'lograge', '~> 0.3.1'
-
 gem "figaro"
 
 gem 'rest-client'
