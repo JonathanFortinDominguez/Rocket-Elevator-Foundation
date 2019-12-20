@@ -1,4 +1,9 @@
-Rails.application.configure do
+ Rails.application.configure do
+  require 'syslogger'
+  config.logger = Syslogger.new("JonathanFD",Syslog::LOG_PID, Syslog::LOG_LOCAL7)
+  config.lograge.enabled = true
+  config.lograge.formatter = Lograge::Formatters::Json.new
+  
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

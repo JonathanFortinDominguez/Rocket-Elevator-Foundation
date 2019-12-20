@@ -1,6 +1,10 @@
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  require 'syslogger'
+  config.logger = Syslogger.new("JonathanFD",Syslog::LOG_PID, Syslog::LOG_LOCAL7)
+  config.lograge.enabled = true
+  config.lograge.formatter = Lograge::Formatters::Json.new
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
   # your test database is "scratch space" for the test suite and is wiped
