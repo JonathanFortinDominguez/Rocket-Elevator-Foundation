@@ -57,6 +57,9 @@ gem 'ibm_watson'
 
 gem 'swapi'
 
+gem 'syslogger', '~> 1.6.0'
+gem 'lograge', '~> 0.3.1'
+
 gem 'newrelic_rpm'
 
 gem "figaro"
