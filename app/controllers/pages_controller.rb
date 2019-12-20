@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 include SendGrid
   skip_before_action :verify_authenticity_token
   def index
+    logger.info "Hello from Rails!"
     content_type = params[:content_type]
     streamer = ElevatorMedia::Streamer.new
     @dog_image = streamer.getContent("dog_image")
