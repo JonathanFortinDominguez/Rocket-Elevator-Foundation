@@ -1,8 +1,12 @@
 Rails.application.configure do
+
+
   require 'syslogger'
   config.logger = Syslogger.new("JonathanFD",Syslog::LOG_PID, Syslog::LOG_LOCAL7)
   config.lograge.enabled = true
   config.lograge.formatter = Lograge::Formatters::Json.new
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -65,7 +69,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "Rocket_Elevators_Information_System_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "myapp2_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
 

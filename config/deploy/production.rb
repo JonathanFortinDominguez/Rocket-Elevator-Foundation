@@ -15,7 +15,8 @@ set :rails_env, "development"
 set :bundle_without, "production"
 set :deploy_to, "/home/ubuntu/apps/#{app}"
 set :linked_dirs, %w{tmp/pids tmp/sockets log}
-set :linked_files, %w{config/database.yml config/database_dwh.yml config/application.yml}
+set :linked_files, %w{config/database.yml config/database_dwh.yml config/application.yml config/storage.yml}
+set :rvm_ruby_version, 'ruby-2.6.3@rocket_elevator'
 
 # role-based syntax
 # ==================

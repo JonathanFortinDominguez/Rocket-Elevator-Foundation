@@ -1,4 +1,10 @@
 Rails.application.configure do
+
+  # require 'syslogger'
+  # config.logger = Syslogger.new("misarakoto",Syslog::LOG_PID, Syslog::LOG_LOCAL7)
+  # config.lograge.enabled = true
+  # config.lograge.formatter = Lograge::Formatters::Json.new
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -31,11 +37,9 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.perform_caching = true
-
-  
+  config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -53,11 +57,13 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-  config.action_mailer.default_url_options = { host: 'rocketelevatorsltd.com' }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
 end
